@@ -1,0 +1,18 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data de Criação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let habilidade of habilidades">
+            <td>{{ habilidade.id }}</td>
+            <td>{{habilidade.nome}}</td>
+            <td>{{habilidade.descricao}}</td>
+            <td>{{habilidade.createdAt}}</td>
+        </tr>
+    </tbody>
+</table>

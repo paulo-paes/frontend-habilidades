@@ -1,0 +1,18 @@
+<form [formGroup]="habilidadeForm" class="container mt-3 form-habilidade">
+    <label for="inputNome" class="form-label mt-3">Nome</label>
+    <input class="form-control" formControlName="nome" id="inputNome" type="text">
+    <p class="danger text-muted mt-1" *ngIf="habilidadeForm?.get('nome')?.errors?.required && habilidadeForm.touched">
+        Por favor, digite um nome.
+    </p>
+
+    <label for="inputDescricao" class="form-label mt-4">Descrição</label>
+    <textarea class="form-control" formControlName="descricao" id="inputDescricao"rows="5"></textarea>
+    <p class="danger text-muted mt-1" *ngIf="habilidadeForm?.get('descricao')?.errors?.maxlength">
+        A descrição máxima é de 300 caracteres.
+    </p>
+
+    <div class="form-habilidade-botoes mt-4">
+        <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+        <button class="btn btn-success" (click)="salvar()">Salvar</button>
+    </div>
+</form>
