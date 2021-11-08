@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
 import { Habilidade } from './Habilidade';
+import { environment } from 'src/environments/environment';
 
 
-const API = 'http://localhost:4000/'
+const API = environment.API;
 @Injectable({providedIn: 'root'})
 export class HabilidadeService {
 

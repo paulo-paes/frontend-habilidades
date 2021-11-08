@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HabilidadesModule } from './habilidades/habilidades.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { HabilidadesModule } from './habilidades/habilidades.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HabilidadesModule
+    HabilidadesModule,
+    UsuariosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
