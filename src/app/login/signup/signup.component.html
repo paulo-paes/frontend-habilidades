@@ -1,29 +1,29 @@
-<form class="form-login container">
+<form [formGroup]="formSignup" class="form-login container" (submit)="salvar($event)">
     <img class="mb-4 form-login_titulo" src="/assets/img/logo.svg" alt="" width="80" height="60">
     <h1 class="h3 mb-3 fw-normal form-login_titulo">Cadastro</h1>
 
     <div class="form-floating mt-3">
-        <input type="email" class="form-control" id="inputNome" placeholder="Nome">
+        <input formControlName="nome" type="text" class="form-control" id="inputNome" placeholder="Nome">
         <label for="inputNome">Nome</label>
     </div>
 
     <div class="form-floating mt-3">
-        <input type="email" class="form-control" id="inputEmailCad" placeholder="Email">
+        <input formControlName="email" type="email" class="form-control" id="inputEmailCad" placeholder="Email">
         <label for="inputEmailCad">Email</label>
     </div>
 
     <div class="form-floating mt-3">
-        <input type="password" class="form-control" id="inputSenhaCad" placeholder="Senha">
+        <input formControlName="senha" type="password" class="form-control" id="inputSenhaCad" placeholder="Senha">
         <label for="inputSenhaCad">Senha</label>
     </div>
 
     <div class="form-floating mt-3">
-        <input type="password" class="form-control" id="inputCargo" placeholder="Cargo">
+        <input formControlName="cargo" type="text" class="form-control" id="inputCargo" placeholder="Cargo">
         <label for="inputCargo">Cargo</label>
     </div>
 
 
-    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Entrar</button>
+    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Criar Conta</button>
     <div class="form-login_label mt-2">
         <a [routerLink]="['']">Já tenho uma conta</a>
     </div>

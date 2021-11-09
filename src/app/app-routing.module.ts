@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 
 import { SignInComponent } from './login/signin/signin.component';
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'cadastrar',
     component: SignUpComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];
 

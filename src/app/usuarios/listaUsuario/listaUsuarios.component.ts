@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../Usuario';
-import { UsuarioService } from './usuario.service';
+import { UsuarioService } from '../../core/usuario/usuario.service';
 
 @Component({
     selector: 'cat-lista-usuarios',
