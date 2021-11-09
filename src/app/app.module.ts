@@ -4,14 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HabilidadesModule } from './habilidades/habilidades.module';
-import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +18,8 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     HabilidadesModule,
     UsuariosModule,
     LoginModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
