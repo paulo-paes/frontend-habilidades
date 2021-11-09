@@ -5,8 +5,7 @@ import { HabilidadeService } from 'src/app/habilidades/habilidade/habilidade.ser
 
 @Component({
     selector: 'cat-form-usuario-habilidade',
-    templateUrl: './formUsuarioHabilidade.component.html',
-    styleUrls: ['./formUsuarioHabilidade.component.css']
+    templateUrl: './formUsuarioHabilidade.component.html'
 })
 export class FormUsuarioHabilidadeComponent implements OnInit {
 
