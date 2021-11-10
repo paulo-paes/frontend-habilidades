@@ -5,7 +5,8 @@ import { HabilidadeService } from './habilidade.service';
 
 @Component({
     selector: 'cat-habilidade',
-    templateUrl: './habilidade.component.html'
+    templateUrl: './habilidade.component.html',
+    styleUrls: ['./habilidade.component.css']
 })
 export class HabilidadeComponent implements OnInit {
 

@@ -17,7 +17,6 @@ import { HabilidadeComponent } from './habilidade/habilidade.component';
     ],
     imports: [
         CommonModule,
-        BrowserModule,
         HttpClientModule,
         ReactiveFormsModule
     ]

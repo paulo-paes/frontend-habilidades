@@ -1,0 +1,4 @@
+.form-usuario-habilidade-botoes{
+    display: flex;
+    justify-content: space-between;
+}

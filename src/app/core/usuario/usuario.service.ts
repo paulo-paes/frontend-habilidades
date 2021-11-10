@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UsuarioLogin } from 'src/app/login/signin/UsuarioLogin';
 import { environment } from 'src/environments/environment';
-import { Usuario } from '../../usuarios/Usuario';
+import { Usuario } from './usuario';
 import jwt_decode from 'jwt-decode';
 import { TokenService } from '../token/token.service';
 import { BehaviorSubject } from 'rxjs';
@@ -11,8 +11,8 @@ const API = environment.API;
 @Injectable({providedIn: 'root'})
 export class UsuarioService {
 
-    //private userSubject = new BehaviorSubject<User>(<User><unknown>null);
-    //private username: string;
+    private userSubject = new BehaviorSubject<Usuario>(<Usuario><unknown>null);
+    private username: string;
 
     constructor(private httpClient: HttpClient,
         private tokenService: TokenService) {
@@ -28,10 +28,6 @@ export class UsuarioService {
         return this.httpClient.post(API + 'usuarios', usuario)
     }
 
-    loginUsuario(usuario: UsuarioLogin){
-        return this.httpClient.post(API + 'usuarios/login', usuario, {observe: 'response'})
-    }
-
     setToken(token: string) {
         this.tokenService.setToken(token);
         // this.decodeAndNotify();
@@ -39,7 +35,7 @@ export class UsuarioService {
 
     logout() {
         this.tokenService.removeToken();
-        // this.userSubject.next(<User><unknown>null);
+        this.userSubject.next(<Usuario><unknown>null);
     }
 
     isLogged() {
@@ -54,12 +50,12 @@ export class UsuarioService {
     //     return this.userSubject.asObservable();
     // }
 
-    // private decodeAndNotify() {
-    //     const token = this.tokenService.getToken();
-    //     const user = jwt_decode(<string>token) as User;
-    //     this.username = user.name;
-    //     this.userSubject.next(user);
-    // }
+    private decodeAndNotify() {
+        const token = this.tokenService.getToken();
+        const user = jwt_decode(<string>token) as Usuario;
+        this.username = user.nome;
+        this.userSubject.next(user);
+    }
 
 
 }

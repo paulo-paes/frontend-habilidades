@@ -5,6 +5,10 @@ import { CommonModule } from '@angular/common';
 import { FooterModule } from '../shared/footer/footer.module';
 import { HeaderModule } from '../shared/header/header.module';
 import { HomeComponent } from './home.component';
+import { HomeRoutingModule } from './home.routing.module';
+import { RouterModule } from '@angular/router';
+import { HabilidadesModule } from '../habilidades/habilidades.module';
+import { UsuariosModule } from '../usuarios/usuarios.module';
 
 @NgModule({
     declarations: [
@@ -16,7 +20,11 @@ import { HomeComponent } from './home.component';
     imports: [
         CommonModule,
         HeaderModule,
-        FooterModule
+        FooterModule,
+        RouterModule,
+        HomeRoutingModule,
+        HabilidadesModule,
+        UsuariosModule
     ]
 })
 export class HomeModule {}

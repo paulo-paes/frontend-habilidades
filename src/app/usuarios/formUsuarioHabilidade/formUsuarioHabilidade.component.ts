@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Habilidade } from 'src/app/habilidades/habilidade/Habilidade';
 import { HabilidadeService } from 'src/app/habilidades/habilidade/habilidade.service';
 
 @Component({
     selector: 'cat-form-usuario-habilidade',
-    templateUrl: './formUsuarioHabilidade.component.html'
+    templateUrl: './formUsuarioHabilidade.component.html',
+    styleUrls: ['./formUsuarioHabilidade.component.css']
 })
 export class FormUsuarioHabilidadeComponent implements OnInit {
 
@@ -14,7 +16,8 @@ export class FormUsuarioHabilidadeComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private habilidadeService: HabilidadeService) {}
+        private habilidadeService: HabilidadeService,
+        private router: Router) {}
 
 
     ngOnInit(): void {
@@ -31,7 +34,7 @@ export class FormUsuarioHabilidadeComponent implements OnInit {
     }
 
     cancelar(){
-        console.log("Cancelando")
+        this.router.navigate(['/home'])
     }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Habilidade } from '../habilidade/Habilidade';
 import { HabilidadeService } from '../habilidade/habilidade.service';
 
@@ -14,7 +15,8 @@ export class FormHabilidadeComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private habilidadeService: HabilidadeService) {}
+        private habilidadeService: HabilidadeService,
+        private router: Router) {}
 
 
     ngOnInit(): void {
@@ -27,10 +29,12 @@ export class FormHabilidadeComponent implements OnInit {
     salvar(){
         const novaHabilidade = this.habilidadeForm.getRawValue() as Habilidade;
         this.habilidadeService.criaHabilidade(novaHabilidade)
-            .subscribe((abg) => console.log(abg))
+            .subscribe(() => {
+                this.router.navigate(['habilidades']);
+            })
     }
 
     cancelar(){
-        console.log("Cancelar")
+        this.router.navigate(['habilidades']);
     }
 }
