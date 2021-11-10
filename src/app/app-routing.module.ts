@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { AuthenticatedGuard } from './core/auth/autenticated.guard';
+import { AuthGuard } from './core/auth/auth.guard';
 
 
 import { SignInComponent } from './login/signin/signin.component';
@@ -10,7 +11,8 @@ import { SignUpComponent } from './login/signup/signup.component';
 const routes: Routes = [
   {
     path: '',
-    component: SignInComponent
+    component: SignInComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'cadastrar',
@@ -18,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    canActivate: [AuthenticatedGuard]
   }
 ];
 

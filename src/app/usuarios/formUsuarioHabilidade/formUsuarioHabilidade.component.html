@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
             <label for="inputHabilidade" class="form-label mt-4">Habilidade</label>
-            <select formControlName="habilidade" type="text" class="form-select" placeholder="First name" id="inputHabilidade">
+            <select formControlName="id_habilidade" type="text" class="form-select" placeholder="First name" id="inputHabilidade">
                 <option value="" selected disabled>Selecione uma habilidade...</option>
                 <option *ngFor="let habilidade of habilidades" value="{{habilidade.id}}">{{habilidade.nome}}</option>
             </select>

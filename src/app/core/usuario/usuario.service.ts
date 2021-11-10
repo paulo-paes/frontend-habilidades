@@ -2,21 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UsuarioLogin } from 'src/app/login/signin/UsuarioLogin';
 import { environment } from 'src/environments/environment';
-import { Usuario } from './usuario';
+import { UsuarioToken } from './usuarionToken';
 import jwt_decode from 'jwt-decode';
 import { TokenService } from '../token/token.service';
 import { BehaviorSubject } from 'rxjs';
+import { Usuario } from 'src/app/usuarios/Usuario';
+import { VinculaUsuarioHabilidade } from './vinculaUsuarioHabilidade';
 
 const API = environment.API;
 @Injectable({providedIn: 'root'})
 export class UsuarioService {
 
-    private userSubject = new BehaviorSubject<Usuario>(<Usuario><unknown>null);
+    private userSubject = new BehaviorSubject<UsuarioToken>(<UsuarioToken><unknown>null);
     private username: string;
 
     constructor(private httpClient: HttpClient,
         private tokenService: TokenService) {
-        //this.tokenService.hasToken() && this.decodeAndNotify();
+        this.tokenService.hasToken() && this.decodeAndNotify();
     }
 
 
@@ -28,27 +30,31 @@ export class UsuarioService {
         return this.httpClient.post(API + 'usuarios', usuario)
     }
 
+    vinculaUsuarioHabilidade(id: string | number, vinculaHabUser: VinculaUsuarioHabilidade){
+        return this.httpClient.post(API + `usuarios/${id}/habilidades`, vinculaHabUser)
+    }
+
     setToken(token: string) {
         this.tokenService.setToken(token);
-        // this.decodeAndNotify();
+        this.decodeAndNotify();
     }
 
     logout() {
         this.tokenService.removeToken();
-        this.userSubject.next(<Usuario><unknown>null);
+        this.userSubject.next(<UsuarioToken><unknown>null);
     }
 
     isLogged() {
         return this.tokenService.hasToken();
     }
 
-    // getUsername() {
-    //     return this.username;
-    // }
+    getUsername() {
+        return this.username;
+    }
 
-    // getUser() {
-    //     return this.userSubject.asObservable();
-    // }
+    getUserToken() {
+        return this.userSubject.asObservable();
+    }
 
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
