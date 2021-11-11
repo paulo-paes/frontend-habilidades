@@ -11,6 +11,7 @@ import { UsuarioLogin } from './UsuarioLogin';
 export class SignInComponent implements OnInit{
 
     formSignin: FormGroup;
+    erroLogado: boolean = false;
 
     constructor(
         private authService: AuthService,
@@ -21,16 +22,30 @@ export class SignInComponent implements OnInit{
 
     ngOnInit(): void {
         this.formSignin = this.formBuilder.group({
-            email: ['', Validators.required],
-            senha: ['', Validators.required]
+            email: ['', 
+                [
+                    Validators.required,
+                    Validators.email
+                ]
+            ],
+            senha: ['', 
+                [
+                    Validators.required,
+                    Validators.minLength(4),
+                    Validators.maxLength(16)
+                ]
+        ]
         })
     }
 
     logar(){
-        const usuario = this.formSignin.getRawValue() as UsuarioLogin;
-        this.authService.authenticate(usuario)
-            .subscribe(() => {
-                this.router.navigate(['home'])
-            })
+        if(this.formSignin.valid){
+            const usuario = this.formSignin.getRawValue() as UsuarioLogin;
+            this.authService.authenticate(usuario)
+                .subscribe(() => {
+                    this.router.navigate(['home'])
+                },
+                () => this.erroLogado = true)
+        }
     }
 }
