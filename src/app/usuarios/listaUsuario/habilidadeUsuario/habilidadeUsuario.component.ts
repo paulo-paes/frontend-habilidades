@@ -9,8 +9,4 @@ import { Habilidade } from 'src/app/habilidades/habilidade/Habilidade';
 export class HabilidadeUsuarioComponent {
 
     @Input() habilidades: string[] | undefined;
-
-    ngOnInit(){
-        console.log(this.habilidades)
-    }
 }

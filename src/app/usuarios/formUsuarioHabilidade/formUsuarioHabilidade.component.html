@@ -11,7 +11,7 @@
         </div>
         <div class="col">
             <label for="inputNivel" class="form-label mt-4">Nível</label>
-            <input type="number" class="form-control" placeholder="Nível" min="1" max="6" formControlName="nivel" id="inputNivel">
+            <input type="number" class="form-control" placeholder="Nível" min="1" max="5" formControlName="nivel" id="inputNivel">
             <cat-vmessage *ngIf="usuarioHabForm.get('nivel')?.errors?.required && formUsuarioHabilidade.submitted" text="O nível mínimo é 1"></cat-vmessage>
         </div>
     </div>
@@ -24,7 +24,5 @@
         <div *ngIf="erroHabilidade" class="alert alert-danger" role="alert">
             Você já possui esta habilidade cadastrada
         </div>
-        <!-- <cat-vmessage *ngIf="erroHabilidade"
-            text="O Usuario já possui esta habilidade"></cat-vmessage> -->
     </div>
 </form>
