@@ -10,3 +10,7 @@
 .espacamento-direita {
     padding-right: 1em;
 }
+
+.tabela-usuarios th {
+    width: 25%;
+}

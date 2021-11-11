@@ -2,16 +2,19 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormUsuarioHabilidadeComponent } from './formUsuarioHabilidade/formUsuarioHabilidade.component';
+import { HabilidadeUsuarioComponent } from './listaUsuario/habilidadeUsuario/habilidadeUsuario.component';
 import { ListaUsuariosComponent } from './listaUsuario/listaUsuarios.component';
 
 @NgModule({
     declarations: [
         ListaUsuariosComponent,
-        FormUsuarioHabilidadeComponent
+        FormUsuarioHabilidadeComponent,
+        HabilidadeUsuarioComponent
     ],
     exports: [
         ListaUsuariosComponent,
-        FormUsuarioHabilidadeComponent
+        FormUsuarioHabilidadeComponent,
+        HabilidadeUsuarioComponent
     ],
     imports: [
         CommonModule,
