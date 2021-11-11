@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { VMessageModule } from '../shared/vmessage/vmessage.module';
 import { SignInComponent } from './signin/signin.component';
 import { SignUpComponent } from './signup/signup.component';
 
@@ -20,7 +21,8 @@ import { SignUpComponent } from './signup/signup.component';
         CommonModule,
         BrowserModule,
         RouterModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        VMessageModule
     ]
 })
 export class LoginModule {}

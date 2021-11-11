@@ -22,18 +22,31 @@ export class SignUpComponent implements OnInit {
     ngOnInit(): void {
         this.formSignup = this.formBuilder.group({
             nome: ['', Validators.required],
-            email: ['', Validators.email],
-            senha: ['', Validators.required],
+            email: ['', 
+                [
+                    Validators.email,
+                    Validators.required
+                ]
+            ],
+            senha: ['', 
+                [
+                    Validators.required,
+                    Validators.maxLength(16),
+                    Validators.minLength(8)
+                ]
+            ],
             cargo: ['', Validators.required]
         })
     }
 
     salvar(event: Event){
         event.preventDefault();
-        const novoUsuario = this.formSignup.getRawValue() as Usuario;
-        this.usuarioService.criaUsuario(novoUsuario)
-            .subscribe(() => {
-                this.router.navigate(['']);
-            })
+        if(this.formSignup.valid){
+            const novoUsuario = this.formSignup.getRawValue() as Usuario;
+            this.usuarioService.criaUsuario(novoUsuario)
+                .subscribe(() => {
+                    this.router.navigate(['']);
+                })
+        }
     }
 }
