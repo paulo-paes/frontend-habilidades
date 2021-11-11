@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/core/usuario/usuario.service';
 import { Usuario } from 'src/app/usuarios/Usuario';
+import { EmailCadastradoValidatorService } from './emailCadastrado.validator.service';
 
 @Component({
     templateUrl: './signup.component.html',
@@ -15,7 +16,8 @@ export class SignUpComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private usuarioService: UsuarioService,
-        private router: Router
+        private router: Router,
+        private emailCadastroValidatorService: EmailCadastradoValidatorService
     ){}
 
 
@@ -26,7 +28,8 @@ export class SignUpComponent implements OnInit {
                 [
                     Validators.email,
                     Validators.required
-                ]
+                ],
+                this.emailCadastroValidatorService.verificaEmailCadastrado()
             ],
             senha: ['', 
                 [
@@ -41,7 +44,7 @@ export class SignUpComponent implements OnInit {
 
     salvar(event: Event){
         event.preventDefault();
-        if(this.formSignup.valid){
+        if(this.formSignup.valid && !this.formSignup.pending){
             const novoUsuario = this.formSignup.getRawValue() as Usuario;
             this.usuarioService.criaUsuario(novoUsuario)
                 .subscribe(() => {

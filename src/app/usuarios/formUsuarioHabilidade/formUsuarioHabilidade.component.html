@@ -1,4 +1,4 @@
-<form [formGroup]="usuarioHabForm" class="container mt-3 form-usuario-habilidade">
+<form #formUsuarioHabilidade="ngForm" [formGroup]="usuarioHabForm" class="container mt-3 form-usuario-habilidade">
     <div class="row">
         <div class="col">
             <label for="inputHabilidade" class="form-label mt-4">Habilidade</label>
@@ -6,21 +6,25 @@
                 <option value="" selected disabled>Selecione uma habilidade...</option>
                 <option *ngFor="let habilidade of habilidades" value="{{habilidade.id}}">{{habilidade.nome}}</option>
             </select>
-            <p class="danger text-muted mt-1" *ngIf="usuarioHabForm?.get('nome')?.errors?.required && usuarioHabForm.touched">
-                Por favor, selecione uma habilidade.
-            </p>
+            <cat-vmessage *ngIf="usuarioHabForm.get('id_habilidade')?.errors?.required && formUsuarioHabilidade.submitted"
+                text="Por favor, selecione uma habilidade"></cat-vmessage>
         </div>
         <div class="col">
             <label for="inputNivel" class="form-label mt-4">Nível</label>
-            <input type="number" class="form-control" placeholder="Nível" min="1" max="5" formControlName="nivel" id="inputNivel">
-            <p class="danger text-muted mt-1" *ngIf="usuarioHabForm?.get('descricao')?.errors?.required">
-                O nível mínimo é 1.
-            </p>
+            <input type="number" class="form-control" placeholder="Nível" min="1" max="6" formControlName="nivel" id="inputNivel">
+            <cat-vmessage *ngIf="usuarioHabForm.get('nivel')?.errors?.required && formUsuarioHabilidade.submitted" text="O nível mínimo é 1"></cat-vmessage>
         </div>
     </div>
 
     <div class="form-usuario-habilidade-botoes mt-4">
         <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
         <button class="btn btn-success" (click)="salvar()">Salvar</button>
+    </div>
+    <div class="text-center mt-3">
+        <div *ngIf="erroHabilidade" class="alert alert-danger" role="alert">
+            Você já possui esta habilidade cadastrada
+        </div>
+        <!-- <cat-vmessage *ngIf="erroHabilidade"
+            text="O Usuario já possui esta habilidade"></cat-vmessage> -->
     </div>
 </form>

@@ -14,6 +14,8 @@
         <label for="inputEmailCad">Email</label>
         <cat-vmessage *ngIf="formSignup.get('email')?.errors?.email && (formSignup.get('email')?.touched || form.submitted)" text="O Endereço de email não é válido"></cat-vmessage>
         <cat-vmessage *ngIf="formSignup.get('email')?.errors?.required && (formSignup.get('email')?.touched || form.submitted)" text="Por favor, digite um email"></cat-vmessage>        
+        <cat-vmessage *ngIf="formSignup.get('email')?.errors?.emailCadastrado" text="Email já cadastrado"></cat-vmessage>
+        <small *ngIf="formSignup.get('email')?.valid" class="text-success">Email disponível</small>        
     </div>
 
     <div class="form-floating mt-3">

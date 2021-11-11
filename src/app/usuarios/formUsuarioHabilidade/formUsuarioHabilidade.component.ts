@@ -19,6 +19,7 @@ export class FormUsuarioHabilidadeComponent implements OnInit {
     habilidades: Habilidade[];
     user$: Observable<UsuarioToken>;
     user: UsuarioToken;
+    erroHabilidade = false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -30,7 +31,12 @@ export class FormUsuarioHabilidadeComponent implements OnInit {
     ngOnInit(): void {
         this.usuarioHabForm = this.formBuilder.group({
             id_habilidade: ['', Validators.required],
-            nivel: [1, Validators.required]
+            nivel: [1, 
+                [
+                    Validators.required,
+                    Validators.pattern(/([1-5])/g)
+                ]
+            ]
         })
 
         this.user$ = this.usuarioService.getUserToken();
@@ -45,10 +51,15 @@ export class FormUsuarioHabilidadeComponent implements OnInit {
     }
 
     salvar(){
-        const objVinculador = this.usuarioHabForm.getRawValue() as VinculaUsuarioHabilidade;
-        console.log(this.user)
-        this.usuarioService.vinculaUsuarioHabilidade(this.user.id, objVinculador)
-            .subscribe(() => this.router.navigate(['/home']))
+
+        if(this.usuarioHabForm.valid){
+            const objVinculador = this.usuarioHabForm.getRawValue() as VinculaUsuarioHabilidade;
+            this.usuarioService.vinculaUsuarioHabilidade(this.user.id, objVinculador)
+                .subscribe(
+                    () => this.router.navigate(['/home']),
+                    () => this.erroHabilidade = true
+                )
+        }
     }
 
     cancelar(){

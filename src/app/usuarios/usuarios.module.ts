@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VMessageModule } from '../shared/vmessage/vmessage.module';
 import { FormUsuarioHabilidadeComponent } from './formUsuarioHabilidade/formUsuarioHabilidade.component';
 import { HabilidadeUsuarioComponent } from './listaUsuario/habilidadeUsuario/habilidadeUsuario.component';
 import { ListaUsuariosComponent } from './listaUsuario/listaUsuarios.component';
@@ -18,7 +19,8 @@ import { ListaUsuariosComponent } from './listaUsuario/listaUsuarios.component';
     ],
     imports: [
         CommonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        VMessageModule
     ]
 })
 export class UsuariosModule {}
