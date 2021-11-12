@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UsuarioLogin } from 'src/app/login/signin/UsuarioLogin';
 import { environment } from 'src/environments/environment';
 import { UsuarioToken } from './usuarionToken';
 import jwt_decode from 'jwt-decode';
@@ -46,6 +45,10 @@ export class UsuarioService {
 
     isLogged() {
         return this.tokenService.hasToken();
+    }
+
+    isGestor(){
+        return this.tokenService.isGestor()
     }
 
     getUsername() {

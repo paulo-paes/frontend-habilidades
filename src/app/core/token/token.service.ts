@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import jwt_decode from 'jwt-decode';
+import { Token } from './token';
 
 
 const KEY = 'authToken';
@@ -18,5 +20,10 @@ export class TokenService {
 
     removeToken() {
         window.localStorage.removeItem(KEY);
+    }
+
+    isGestor(){
+        const token = jwt_decode(<string>this.getToken()) as Token;
+        return token.role === 'gestor' ? true : false
     }
 }

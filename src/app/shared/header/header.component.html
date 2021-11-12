@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li>
-                        <a [routerLink]="['nova-habilidade']" class="nav-link text-white">
+                        <a *ngIf="isGestor" [routerLink]="['nova-habilidade']" class="nav-link text-white">
                             <i class="bi bi-speedometer2"></i>
                             Adicionar Habilidade
                         </a>
