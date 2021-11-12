@@ -11,6 +11,7 @@ import { SignUpComponent } from './login/signup/signup.component';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     component: SignInComponent,
     canActivate: [AuthGuard]
   },
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

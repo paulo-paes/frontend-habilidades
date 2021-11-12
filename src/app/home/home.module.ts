@@ -9,6 +9,8 @@ import { HomeRoutingModule } from './home.routing.module';
 import { RouterModule } from '@angular/router';
 import { HabilidadesModule } from '../habilidades/habilidades.module';
 import { UsuariosModule } from '../usuarios/usuarios.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestInterceptor } from '../core/auth/request.intercenptor';
 
 @NgModule({
     declarations: [
@@ -22,9 +24,10 @@ import { UsuariosModule } from '../usuarios/usuarios.module';
         HeaderModule,
         FooterModule,
         RouterModule,
-        HomeRoutingModule,
         HabilidadesModule,
-        UsuariosModule
+        UsuariosModule,
+        HttpClientModule,
+        HomeRoutingModule,
     ]
 })
 export class HomeModule {}

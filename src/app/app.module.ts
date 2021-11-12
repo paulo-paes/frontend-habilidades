@@ -1,14 +1,14 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RequestInterceptor } from './core/auth/request.intercenptor';
-import { HabilidadesModule } from './habilidades/habilidades.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
-import { UsuariosModule } from './usuarios/usuarios.module';
+
 
 @NgModule({
   declarations: [
@@ -16,12 +16,10 @@ import { UsuariosModule } from './usuarios/usuarios.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HabilidadesModule,
-    UsuariosModule,
     LoginModule,
-    AppRoutingModule,
-    HomeModule
+    RouterModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     {
