@@ -3,6 +3,7 @@ export interface Habilidade{
     nome: string;
     descricao: string | null;
     nivel: number;
-    createdAt: Date;
+    createdAt: any;
+    novaData: Date | string;
     updatedAt: Date;
 }

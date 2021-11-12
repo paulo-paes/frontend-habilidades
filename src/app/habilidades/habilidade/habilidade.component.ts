@@ -17,9 +17,19 @@ export class HabilidadeComponent implements OnInit {
 
 
     ngOnInit(): void {
-        this.habilidades$ = this.habilidadeService.getHabilidades()
-        this.habilidades$.subscribe((skills) => this.habilidades = skills)
+        this.habilidades$ = this.habilidadeService.getHabilidades();
+
+        this.habilidades$.subscribe((habilidades) => {
+            this.habilidades = habilidades.map((habilidade) => {
+                return { ...habilidade, createdAt: this.formataData(habilidade.createdAt)}
+            })
+        })
     }
 
+    formataData(data: Date){
+        let dataNaoFormatada = new Date(data)
+        let dataFormatada = ((dataNaoFormatada.getDate())) + "/" + ((dataNaoFormatada.getMonth() + 1)) + "/" + dataNaoFormatada.getFullYear();
+        return dataFormatada
+    }
 
 }
