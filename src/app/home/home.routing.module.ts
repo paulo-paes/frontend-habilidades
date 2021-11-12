@@ -16,19 +16,31 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: ListaUsuariosComponent
+                component: ListaUsuariosComponent,
+                data: {
+                    title: 'Home - Catálogo de Habilidades'
+                }
             },
             {
                 path: 'habilidades',
-                component: HabilidadeComponent
+                component: HabilidadeComponent,
+                data: {
+                    title: 'Habilidades - Catálogo de Habilidades'
+                }
             },
             {
                 path: 'nova-habilidade',
-                component: FormHabilidadeComponent
+                component: FormHabilidadeComponent,
+                data: {
+                    title: 'Nova Habilidade - Catálogo de Habilidades'
+                }
             },
             {
                 path: 'vincular-habilidade',
-                component: FormUsuarioHabilidadeComponent
+                component: FormUsuarioHabilidadeComponent,
+                data: {
+                    title: 'Vinculo de Habilidade - Catálogo de Habilidades'
+                }
             }
         ]
     }

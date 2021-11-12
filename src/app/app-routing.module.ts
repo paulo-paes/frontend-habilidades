@@ -13,11 +13,17 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: SignInComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: {
+      title: 'Login - Catálogo de Habilidades'
+    }
   },
   {
     path: 'cadastrar',
-    component: SignUpComponent
+    component: SignUpComponent,
+    data: {
+      title: 'Cadastro - Catálogo de Habilidades'
+    }
   },
   {
     path: 'home',
