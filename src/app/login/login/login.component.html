@@ -1,0 +1,35 @@
+<div class="container-login">
+    <div class="login">
+        <div class="card-login zindex1">
+            <form #formLogin="ngForm" [formGroup]="loginForm" class="form-login" (submit)="logar($event)">
+                <p class="login-label">Login</p>
+                <div class="inputLogin">
+                    <input formControlName="email" class="login-input" type="text" placeholder="Email">
+                    <cat-vmessage *ngIf="loginForm.get('email')?.errors?.required && (loginForm.get('email')?.touched || formLogin.submitted)"
+                        text="Por favor, digite um email"></cat-vmessage>
+    
+                    <cat-vmessage *ngIf="loginForm.get('email')?.errors?.email && (formLogin.submitted)"
+                        text="Digite um email válido"></cat-vmessage>
+                </div>
+                <div class="inputSenha">
+                    <input formControlName="senha" class="login-input" type="password" name="" id="" placeholder="*****">
+                    <cat-vmessage *ngIf="loginForm.get('senha')?.errors?.required && (loginForm.get('senha')?.touched || formLogin.submitted)"
+                        text="Por favor, digite uma senha"></cat-vmessage>
+                    <cat-vmessage *ngIf="(loginForm.get('senha')?.errors?.minlength || loginForm.get('senha')?.errors?.maxlength) && formLogin.submitted"
+                        text="Senha inválida"></cat-vmessage>
+                </div>
+                <button class="login-botao" type="submit">Entrar</button>
+                <a class="login-esqueci-senha">Esqueci minha senha</a>
+            </form></div><div class="card-login">
+            <div class="registrar">
+                <div class="registrar-container">
+                    <p class="registrar-label">Registrar</p>
+                    <p class="registrar-txt">Ainda não tem sua conta? Registre-se aqui</p>
+                    <button (click)="cadastrar()" class="registrar-botao">Registrar</button>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+</div>

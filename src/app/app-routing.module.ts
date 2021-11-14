@@ -4,7 +4,7 @@ import { AuthenticatedGuard } from './core/auth/autenticated.guard';
 import { AuthGuard } from './core/auth/auth.guard';
 
 
-import { SignInComponent } from './login/signin/signin.component';
+import { LoginComponent } from './login/login/login.component';
 import { SignUpComponent } from './login/signup/signup.component';
 
 
@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: SignInComponent,
+    component: LoginComponent,
     canActivate: [AuthGuard],
     data: {
       title: 'Login - Catálogo de Habilidades'
@@ -30,9 +30,14 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     canActivate: [AuthenticatedGuard]
   },
-  {
+  /* {
     path: '**',
     redirectTo: ''
+  }, */
+  {
+    path: 'teste',
+    pathMatch: 'full',
+    component: LoginComponent
   }
 ];
 
