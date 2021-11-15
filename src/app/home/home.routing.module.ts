@@ -5,6 +5,7 @@ import { HabilidadeComponent } from '../habilidades/habilidade/habilidade.compon
 import { FormUsuarioHabilidadeComponent } from '../usuarios/formUsuarioHabilidade/formUsuarioHabilidade.component';
 import { ListaUsuariosComponent } from '../usuarios/listaUsuario/listaUsuarios.component';
 import { HomeComponent } from './home.component';
+import { NovaHomeComponent } from './novaHome/novaHome.component';
 
 
 

@@ -11,13 +11,19 @@ import { HabilidadesModule } from '../habilidades/habilidades.module';
 import { UsuariosModule } from '../usuarios/usuarios.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from '../core/auth/request.intercenptor';
+import { NovaHomeComponent } from './novaHome/novaHome.component';
+import { MenuLateralComponent } from './novaHome/menuLateral/menuLateral.component';
 
 @NgModule({
     declarations: [
-        HomeComponent
+        HomeComponent,
+        NovaHomeComponent,
+        MenuLateralComponent
     ],
     exports: [
-        HomeComponent
+        HomeComponent,
+        NovaHomeComponent,
+        MenuLateralComponent
     ],
     imports: [
         CommonModule,
@@ -27,7 +33,7 @@ import { RequestInterceptor } from '../core/auth/request.intercenptor';
         HabilidadesModule,
         UsuariosModule,
         HttpClientModule,
-        HomeRoutingModule,
+        HomeRoutingModule
     ]
 })
 export class HomeModule {}

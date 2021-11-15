@@ -1,0 +1,65 @@
+.menu-lateral{
+    min-height: 100vh;
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: white;
+
+
+    /* background: linear-gradient(180deg, rgba(173,232,244,1) 0%, rgba(0,180,216,1) 80%, rgba(3,4,94,1) 100%); */
+
+    /* background: linear-gradient(0deg, rgba(173,232,244,1) 0%, rgba(0,180,216,1) 29%, rgba(3,4,94,1) 93%); */
+    background: rgb(144,224,239);
+    background: linear-gradient(0deg, rgba(144,224,239,1) 0%, rgba(0,180,216,1) 4%, rgba(3,4,94,1) 93%);
+}
+
+.menu-usuario{
+    align-self: center;
+    margin-top: 1.5em;
+}
+
+.nav-paginas{
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.list-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.paginas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    flex-grow: 1;
+    /* background-color: red; */
+}
+
+.list-item{
+    padding: 1.5em 1.5em;
+}
+
+.list-item:hover{
+    /* filter: brightness(120%); */
+    background-color: rgba(190, 205, 236, 0.2);
+    cursor: pointer;
+}
+
+.logout{
+    width: 100%;
+    color: white;
+}
+
+.logout:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
