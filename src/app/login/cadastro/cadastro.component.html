@@ -1,0 +1,39 @@
+<div class="container-cadastro">
+    <div class="cadastro">
+        <div class="card-cadastro zindex1">
+            <form #formRegister="ngForm" [formGroup]="registerForm" class="form-cadastro" (submit)="salvar($event)">
+                <p class="cadastro-label">Cadastro</p>
+
+                <div class="inputNome inputEntrada">
+                    <input formControlName="nome" class="cadastro-input" type="text" placeholder="Nome">
+                    <cat-vmessage *ngIf="registerForm.get('nome')?.errors?.required && (registerForm.get('nome')?.touched || formRegister.submitted)" text="Por favor, digite um nome"></cat-vmessage>
+ 
+                </div>
+                
+                <div class="inputEmail inputEntrada">
+                    <input formControlName="email" class="cadastro-input" type="text" placeholder="Email">
+                    <cat-vmessage *ngIf="registerForm.get('email')?.errors?.email && (registerForm.get('email')?.touched || formRegister.submitted)" text="O Endereço de email não é válido"></cat-vmessage>
+                    <cat-vmessage *ngIf="registerForm.get('email')?.errors?.required && (registerForm.get('email')?.touched || formRegister.submitted)" text="Por favor, digite um email"></cat-vmessage>        
+                    <small style="display: block; margin-top: .5em;" *ngIf="registerForm.get('email')?.valid" class="text-success">Email disponível</small>  
+                    <cat-vmessage *ngIf="registerForm.get('email')?.errors?.emailCadastrado" text="Email já cadastrado"></cat-vmessage>
+                </div>
+
+                <div class="inputSenha inputEntrada">
+                    <input formControlName="cargo" class="cadastro-input" type="text" placeholder="Cargo">
+                    <cat-vmessage *ngIf="registerForm.get('cargo')?.errors?.required && (registerForm.get('cargo')?.touched || formRegister.submitted)" text="Por favor, digite um cargo"></cat-vmessage>
+                    
+                </div>
+
+                <div class="inputCargo inputEntrada">
+                    <input formControlName="senha" class="cadastro-input" type="password" name="" id="" placeholder="Senha">
+                    <cat-vmessage *ngIf="registerForm.get('senha')?.errors?.required && (registerForm.get('senha')?.touched || formRegister.submitted)" text="Por favor, digite uma senha"></cat-vmessage>
+                    <cat-vmessage *ngIf="registerForm.get('senha')?.errors?.maxlength && (registerForm.get('senha')?.touched || formRegister.submitted)" text="A senha deve conter no máximo 16 caracteres"></cat-vmessage>
+                    <cat-vmessage *ngIf="registerForm.get('senha')?.errors?.minlength && (registerForm.get('senha')?.touched || formRegister.submitted)" text="A senha deve conter no mínimo 8 caracteres"></cat-vmessage>
+                </div>
+
+                <button class="cadastro-botao" type="submit">Criar Conta</button>
+                <a [routerLink]="['']" class="cadastro-esqueci-senha">Já tenho uma conta</a>
+            </form>
+        </div>
+    </div>
+</div>

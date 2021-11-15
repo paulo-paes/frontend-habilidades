@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsuarioService } from 'src/app/core/usuario/usuario.service';
-import { UsuarioLogin } from 'src/app/login/signin/UsuarioLogin';
+import { UsuarioLogin } from 'src/app/login/login/UsuarioLogin';
+
 
 @Component({
     selector: 'cat-header',

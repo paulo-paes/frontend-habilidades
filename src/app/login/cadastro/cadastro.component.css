@@ -1,28 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&display=swap');
 
 
-.container-login{
+.container-cadastro{
     background: #7F7FD5;
     background-image: radial-gradient( circle farthest-corner at 1.3% 2.8%,  rgba(239,249,249,1) 0%, rgba(182,199,226,1) 100.2% );
     height: 100vh;
 }
 
-.login{
+.cadastro{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: 95vh;
+    width: 100%;
     font-family: 'Montserrat', sans-serif;
-
 }
 
-.card-login{
-    height: 68%;
-    width: 30%;
-    
+.card-cadastro{
+    height: 75%;
+    width: 37%;
 }
 
-.form-login{
+.form-cadastro{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,20 +32,19 @@
     background-color: white;
     border-radius: .5em;
     box-shadow: 5px 1px 3px rgba(0, 0, 0, 0.288);
-
 }
 
 .zindex1{
     z-index: 1;
 }
 
-.login-label{
+.cadastro-label{
     margin-right: 37%;
     font-weight: 100;
     font-size: 2rem;
 }
 
-.login-input{
+.cadastro-input{
     padding: .8em 2em;
     border-radius: 3em;
     outline: none;
@@ -55,19 +53,15 @@
     border: 1px solid #c3c5c7;
 }
 
-.inputSenha{
+.inputEntrada {
     width: 100%;
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 2em;    
 }
 
-.inputLogin{
-    width: 100%;
-    text-align: center;
-    margin-bottom: 2em;
-}
 
-.login-botao{
+
+.cadastro-botao{
     margin-bottom: 2em;
     padding: .8em 2em;
     border-radius: 3em;
@@ -83,12 +77,12 @@
     transition: all .8s ease-in-out;
 }
 
-.login-botao:hover{
+.cadastro-botao:hover{
     transition: all .8s ease-in-out;
     background-position: 80% 0;
 }
 
-.login-esqueci-senha{
+.cadastro-esqueci-senha{
     text-decoration: none;
     color: #183db6;
     cursor: pointer;
@@ -96,70 +90,9 @@
     transition: all 1s ease-in-out;
 }
 
-.login-esqueci-senha:hover{
+.cadastro-esqueci-senha:hover{
     text-decoration: underline;
     transition: all 1s ease-in-out;
 }
 
-.registrar{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    height: 100%;
-    transform: translateX(-2%);
 
-    
-}
-
-.registrar-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 92%;
-    width: 100%;
-    background-color: #00308fbe;
-    border-end-end-radius: 1em;
-    border-top-right-radius: 1em;
-}
-
-
-.registrar-label{
-    align-self: flex-start;
-    margin-left: 1.2em;
-    font-weight: 200;
-    font-size: 2rem;
-}
-.registrar-txt{
-    margin: 0;
-    align-self: flex-start;
-    margin-left: 2.7em;
-    margin-bottom: 1em;
-}
-
-.registrar-botao{
-    align-self: flex-start;
-    padding: 1em 2em;
-    border-radius: 3em;
-    background: transparent;
-    background-size: 300% 100%;
-    border: 1px solid white;
-    outline: none;
-    color: white;
-    transition: .3s ease-in-out;
-    margin-left: 2em;
-}
-
-.registrar-botao:hover{
-    background-color: rgba(0, 0, 0, 0.35);
-    transition: .3s ease-in-out;
-}
-
-.mensagem-sucesso{
-    margin-bottom: 1em;
-    font-weight: 700;
-    padding: 1em 2em;
-    border: 1px solid lightgreen;
-}

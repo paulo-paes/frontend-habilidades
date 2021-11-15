@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticatedGuard } from './core/auth/autenticated.guard';
 import { AuthGuard } from './core/auth/auth.guard';
+import { CadastroComponent } from './login/cadastro/cadastro.component';
 
 
 import { LoginComponent } from './login/login/login.component';
-import { SignUpComponent } from './login/signup/signup.component';
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'cadastrar',
-    component: SignUpComponent,
+    component: CadastroComponent,
     data: {
       title: 'Cadastro - Catálogo de Habilidades'
     }
@@ -37,7 +37,7 @@ const routes: Routes = [
   {
     path: 'teste',
     pathMatch: 'full',
-    component: LoginComponent
+    component: CadastroComponent
   }
 ];
 

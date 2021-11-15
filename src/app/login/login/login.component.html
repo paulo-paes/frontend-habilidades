@@ -3,6 +3,7 @@
         <div class="card-login zindex1">
             <form #formLogin="ngForm" [formGroup]="loginForm" class="form-login" (submit)="logar($event)">
                 <p class="login-label">Login</p>
+                <small *ngIf="registerSuccess" class="text-success mensagem-sucesso">Conta Criada com sucesso!</small>
                 <div class="inputLogin">
                     <input formControlName="email" class="login-input" type="text" placeholder="Email">
                     <cat-vmessage *ngIf="loginForm.get('email')?.errors?.required && (loginForm.get('email')?.touched || formLogin.submitted)"

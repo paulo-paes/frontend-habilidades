@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { UsuarioLogin } from 'src/app/login/signin/UsuarioLogin';
+import { UsuarioLogin } from 'src/app/login/login/UsuarioLogin';
 import { environment } from 'src/environments/environment';
 import { UsuarioService } from '../usuario/usuario.service';
 

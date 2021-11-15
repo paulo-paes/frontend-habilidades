@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { debounceTime } from 'rxjs/operators';
 import { UsuarioService } from 'src/app/core/usuario/usuario.service';
 import { Usuario } from 'src/app/usuarios/Usuario';
 import { EmailCadastradoValidatorService } from './emailCadastrado.validator.service';
 
 @Component({
-    templateUrl: './signup.component.html',
-    styleUrls: ['./signup.component.css']
+    templateUrl: './cadastro.component.html',
+    styleUrls: ['./cadastro.component.css']
 })
-export class SignUpComponent implements OnInit {
+export class CadastroComponent implements OnInit {
     
-    formSignup: FormGroup;
+    registerForm: FormGroup;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -22,7 +23,7 @@ export class SignUpComponent implements OnInit {
 
 
     ngOnInit(): void {
-        this.formSignup = this.formBuilder.group({
+        this.registerForm = this.formBuilder.group({
             nome: ['', Validators.required],
             email: ['', 
                 [
@@ -44,11 +45,11 @@ export class SignUpComponent implements OnInit {
 
     salvar(event: Event){
         event.preventDefault();
-        if(this.formSignup.valid && !this.formSignup.pending){
-            const novoUsuario = this.formSignup.getRawValue() as Usuario;
+        if(this.registerForm.valid && !this.registerForm.pending){
+            const novoUsuario = this.registerForm.getRawValue() as Usuario;
             this.usuarioService.criaUsuario(novoUsuario)
-                .subscribe(() => {
-                    this.router.navigate(['']);
+            .subscribe(() => {
+                    this.router.navigate([''], {queryParams: {created: true}});
                 })
         }
     }

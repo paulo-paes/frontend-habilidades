@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { UsuarioLogin } from './UsuarioLogin';
 
@@ -13,15 +13,21 @@ export class LoginComponent implements OnInit{
 
     loginForm: FormGroup;
     erroLogado: boolean = false;
+    registerSuccess = false;
 
     constructor(
         private authService: AuthService,
         private formBuilder: FormBuilder,
-        private router: Router
+        private router: Router,
+        private activatedRoute: ActivatedRoute
     ){}
 
 
     ngOnInit(): void {
+        this.activatedRoute.queryParams.subscribe(params => {
+            this.registerSuccess = params.created;
+            setTimeout(() => this.registerSuccess = false, 2500)
+        })
         this.loginForm = this.formBuilder.group({
             email: ['', 
                 [
