@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { UsuarioToken } from './usuarionToken';
 import jwt_decode from 'jwt-decode';
@@ -14,12 +14,12 @@ export class UsuarioService {
 
     private userSubject = new BehaviorSubject<UsuarioToken>(<UsuarioToken><unknown>null);
     private username: string;
+    private cargo: string;
 
     constructor(private httpClient: HttpClient,
         private tokenService: TokenService) {
-        this.tokenService.hasToken() && this.decodeAndNotify();
+            this.tokenService.hasToken() && this.decodeAndNotify();
     }
-
 
     getUsuarios(){
         return this.httpClient.get<Usuario[]>(API + 'usuarios')
@@ -51,8 +51,8 @@ export class UsuarioService {
         return this.tokenService.isGestor()
     }
 
-    getUsername() {
-        return this.username;
+    getUsernameAndCargo() {
+        return {username: this.username, cargo: this.cargo};
     }
 
     getUserToken() {
@@ -61,8 +61,10 @@ export class UsuarioService {
 
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
-        const user = jwt_decode(<string>token) as Usuario;
+        console.log("Decode")
+        const user = jwt_decode(<string>token) as UsuarioToken;
         this.username = user.nome;
+        this.cargo = user.cargo;
         this.userSubject.next(user);
     }
 
