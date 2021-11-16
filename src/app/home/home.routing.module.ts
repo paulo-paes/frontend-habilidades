@@ -6,6 +6,7 @@ import { FormUsuarioHabilidadeComponent } from '../usuarios/formUsuarioHabilidad
 // import { ListaUsuariosComponent } from '../usuarios/listaUsuario/listaUsuarios.component';
 import { NovaHomeComponent } from './novaHome/novaHome.component';
 import { ListaUsuarioComponent } from './novoUsuario/novaLista/listaUsuario.component';
+import { PerfilUsuarioComponent } from './perfilUsuario/perfilUsuario.component';
 
 
 
@@ -41,6 +42,13 @@ const routes: Routes = [
                 component: FormUsuarioHabilidadeComponent,
                 data: {
                     title: 'Vinculo de Habilidade - Catálogo de Habilidades'
+                }
+            },
+            {
+                path: 'usuario/:id',
+                component: PerfilUsuarioComponent,
+                data: {
+                    title: 'Catálogo de Habilidades'
                 }
             }
         ]

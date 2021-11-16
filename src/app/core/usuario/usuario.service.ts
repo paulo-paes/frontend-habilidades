@@ -7,6 +7,7 @@ import { TokenService } from '../token/token.service';
 import { BehaviorSubject } from 'rxjs';
 import { Usuario } from 'src/app/usuarios/Usuario';
 import { VinculaUsuarioHabilidade } from './vinculaUsuarioHabilidade';
+import { UsuarioPerfil } from 'src/app/home/perfilUsuario/UsuarioPerfil';
 
 const API = environment.API;
 @Injectable({providedIn: 'root'})
@@ -23,6 +24,10 @@ export class UsuarioService {
 
     getUsuarios(){
         return this.httpClient.get<Usuario[]>(API + 'usuarios')
+    }
+    
+    getUsuarioById(id: number | string){
+        return this.httpClient.get<UsuarioPerfil>(API + `usuarios/${id}/habilidades`)
     }
 
     criaUsuario(usuario: Usuario){

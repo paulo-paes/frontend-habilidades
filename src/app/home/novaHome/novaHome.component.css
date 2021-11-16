@@ -6,6 +6,7 @@
       "footer footer";
     grid-template-columns: 17% 1fr;
     grid-template-rows: 80px 1fr 100px;
+    
 }
 
 .home__header{
@@ -25,6 +26,7 @@
   grid-area: conteudo;
   grid-template-columns: 2 / 2;
   grid-template-rows: 2 / 2;
+  background-image: radial-gradient( circle farthest-corner at 1.3% 2.8%,  rgba(239,249,249,1) 0%, rgba(182,199,226,1) 100.2% );
 }
 
 .home__footer{

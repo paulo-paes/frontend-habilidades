@@ -16,6 +16,7 @@ import { MenuLateralComponent } from './novaHome/menuLateral/menuLateral.compone
 import { NovoHeaderComponent } from './novoHeader/novoHeader.component';
 import { ListaUsuarioComponent } from './novoUsuario/novaLista/listaUsuario.component';
 import { CardUsuarioComponent } from './novoUsuario/cardUsuario/cardUsuario.component';
+import { PerfilUsuarioComponent } from './perfilUsuario/perfilUsuario.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { CardUsuarioComponent } from './novoUsuario/cardUsuario/cardUsuario.comp
         MenuLateralComponent,
         NovoHeaderComponent,
         ListaUsuarioComponent,
-        CardUsuarioComponent
+        CardUsuarioComponent,
+        PerfilUsuarioComponent
     ],
     exports: [
         HomeComponent,
@@ -32,7 +34,8 @@ import { CardUsuarioComponent } from './novoUsuario/cardUsuario/cardUsuario.comp
         MenuLateralComponent,
         NovoHeaderComponent,
         ListaUsuarioComponent,
-        CardUsuarioComponent
+        CardUsuarioComponent,
+        PerfilUsuarioComponent
     ],
     imports: [
         CommonModule,

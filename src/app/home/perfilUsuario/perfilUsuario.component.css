@@ -1,0 +1,79 @@
+.perfil{
+    width: 100%;
+    height: calc(100% - 3rem);
+}
+
+.perfil__usuario{
+    background-color: #fdfdfd;
+    /* border: 1px solid rgba(51, 51, 51, 0.616); */
+    box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.199);
+    border-radius: 3rem;
+    margin: 3rem;
+    height: 85%;
+
+    display: grid;
+    grid-template-areas: "dados" "habilidades";
+    grid-template-columns: auto;
+    grid-template-rows: 30% 1fr;
+}
+
+.perfil__dados{
+    display: flex;
+    grid-area: dados;
+    align-items: center;
+    padding-top: 1em;
+    padding-left: 3em;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.397);
+}
+
+
+.dados__pessoais{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+    height: 100%;
+    margin-left: 2em;
+}
+
+.perfil__habilidades{
+    grid-area: habilidades;
+}
+
+.tabela__habilidades{
+    width: 65%;
+    margin: auto;
+    margin-top: 3rem;
+    /* border: 1px solid #333; */
+    font-size: 1.2em;
+}
+
+.tabela__cabecalho{
+    background-color: rgba(51, 51, 51, 0.356);
+    
+    height: 3rem;
+    border-bottom: 1px solid #33333367;
+    
+    
+}
+
+.tabela__cabecalho th{
+    margin: 5px;
+    /* border: 1px solid #333; */
+    
+    width: 50%;
+    text-align: center;
+}
+
+.tabela__corpo{
+    text-align: center;
+}
+
+.tabela__corpo td{
+    border-bottom: 1px solid #33333367;
+    padding: .5em;
+}
+
+.tabela__corpo > tr:hover{
+    background-color: #33333333;
+}

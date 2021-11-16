@@ -2,25 +2,38 @@
     border: 1px solid #c7bebe;
     background-color: white;
     display: grid;
-    grid-template-areas: "nome" "cargo" "habilidades";
-    grid-template-columns: auto;
+    grid-template-areas: "nome verMais" "cargo verMais" "habilidades";
+    grid-template-columns: auto 20%;
     height: 235px;
     width: 330px;
     grid-template-rows: 15% 15% 1fr;
     margin: 1em;
-    /* gap: .5em; */
+    box-shadow: 8px 1px 15px 1px rgba(0, 0, 0, 0.199);
 }
 
 .card__nome{
     grid-area: nome;
+    grid-column: 1 / 1;
+    grid-row: 1 / 2;
     font-size: 1.2rem;
     font-weight: 500;
     padding: .5em 0 0 .7em;
     margin: 0;
 }
 
+.card__vermais{
+    grid-area: verMais;
+    grid-column: 2 / 2;
+    grid-row: 1 / 3;
+    cursor: pointer;
+    text-align: center;
+    padding: 1em 0;
+}
+
 .card__cargo{
     grid-area: cargo;
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
     font-size: .8rem;
     font-weight: 300;
     padding-left: 1em;
@@ -28,18 +41,26 @@
 
 .card__habilidades{
     grid-area: habilidades;
+    grid-column: 1 / -1;
+    grid-row: 3 / 3;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    padding-top: .1rem;
     padding-left: .7em;
     border-top: 1px solid #c7bebe;
 }
 
 .card__items{
     padding: .5em .5em;
-    background-color: red;
+    background-color: #0095c781;
     width: 100px;
     margin: .1em;
     height: fit-content;
     text-align: center;
+}
+
+.card__items:hover{
+    background-color: #0095c7;
+    color: white;
 }

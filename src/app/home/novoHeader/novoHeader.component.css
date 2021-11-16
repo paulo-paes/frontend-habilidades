@@ -15,4 +15,9 @@
 
 .headerBemvindo{
     margin: 0;
+    padding-right: 5%;
+}
+
+.headerNome{
+    font-weight: 800;
 }
