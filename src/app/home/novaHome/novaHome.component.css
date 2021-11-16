@@ -1,10 +1,34 @@
 .home__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+      "menuLateral header" 
+      "menuLateral conteudo"
+      "footer footer";
+    grid-template-columns: 17% 1fr;
+    grid-template-rows: 80px 1fr 100px;
+}
+
+.home__header{
+  grid-area: header;
+  grid-template-columns: 2 / 2;
+  grid-template-rows: 1 / 1;
+}
+
+.home__menu{
+  grid-area: menuLateral;
+  grid-template-columns: 1 / 3;
+  grid-template-rows: 1 / 2;
+
 }
 
 .home__conteudo {
-  flex-grow: 1; 
+  grid-area: conteudo;
+  grid-template-columns: 2 / 2;
+  grid-template-rows: 2 / 2;
+}
+
+.home__footer{
+  grid-area: footer;
+  grid-template-columns: 1 / 2;
+  grid-template-rows: 3 / 3;
 }

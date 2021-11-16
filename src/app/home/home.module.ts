@@ -13,17 +13,20 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from '../core/auth/request.intercenptor';
 import { NovaHomeComponent } from './novaHome/novaHome.component';
 import { MenuLateralComponent } from './novaHome/menuLateral/menuLateral.component';
+import { NovoHeaderComponent } from './novoHeader/novoHeader.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
         NovaHomeComponent,
-        MenuLateralComponent
+        MenuLateralComponent,
+        NovoHeaderComponent
     ],
     exports: [
         HomeComponent,
         NovaHomeComponent,
-        MenuLateralComponent
+        MenuLateralComponent,
+        NovoHeaderComponent
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,18 @@
+.novoHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    height: 100%;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.411);
+    color: white;
+    background-color: #03045e;
+}
+
+.headerLogo{
+    max-width: 80px;
+}
+
+.headerBemvindo{
+    margin: 0;
+}
