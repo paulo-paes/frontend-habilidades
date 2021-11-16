@@ -13,23 +13,23 @@
         
         <ul class="list-items">
             <div class="paginas">
-                <li class="list-item">
+                <li [routerLink]="['/home']" class="list-item">
                     <a><i class="bi bi-house-door me-3"></i>Home</a>
                 </li>
-                <li class="list-item">
+                <li [routerLink]="['habilidades']" class="list-item">
                     <a><i class="bi bi-table me-3"></i>Habilidades</a>
                 </li>
-                <li class="list-item">
+                <li [routerLink]="['nova-habilidade']" class="list-item">
                     <a><i class="bi bi-speedometer2 me-3"></i>Adicionar Habilidade</a>
                 </li>
-                <li class="list-item">
+                <li [routerLink]="['vincular-habilidade']" class="list-item">
                     <a><i class="bi bi-file-plus me-3"></i>Vincular Habilidade</a>
                 </li>
             </div>
         </ul>
     </nav>
 
-    <div class="list-item logout">
+    <div (click)="logout()" class="list-item logout">
         <a><i class="bi bi-box-arrow-left me-3"></i>Logout</a>
     </div>
 </aside>

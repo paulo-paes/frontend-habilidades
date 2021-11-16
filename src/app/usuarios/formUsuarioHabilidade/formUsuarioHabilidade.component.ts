@@ -46,7 +46,6 @@ export class FormUsuarioHabilidadeComponent implements OnInit {
             .getHabilidades()
             .subscribe((result) => {
                 this.habilidades = result
-                console.log(result)
             })
     }
 

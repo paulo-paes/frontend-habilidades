@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
+import { filter, map } from "rxjs/operators";
 import { UsuarioService } from "src/app/core/usuario/usuario.service";
 
 @Component({
@@ -11,13 +13,18 @@ export class MenuLateralComponent implements OnInit {
     userData: any;
 
     constructor(
-        private usuarioService: UsuarioService
+        private usuarioService: UsuarioService,
+        private router: Router
     ){}
 
 
     ngOnInit(): void {
         this.usuarioService.getUserToken()
             .subscribe(user => this.userData = user);
-        console.log(this.userData)
+    }
+
+    logout(){
+        this.usuarioService.logout();
+        this.router.navigate(['']);
     }
 }

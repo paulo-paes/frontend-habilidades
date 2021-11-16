@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormHabilidadeComponent } from '../habilidades/formHabilidade/formHabilidade.component';
 import { HabilidadeComponent } from '../habilidades/habilidade/habilidade.component';
 import { FormUsuarioHabilidadeComponent } from '../usuarios/formUsuarioHabilidade/formUsuarioHabilidade.component';
-import { ListaUsuariosComponent } from '../usuarios/listaUsuario/listaUsuarios.component';
-import { HomeComponent } from './home.component';
+// import { ListaUsuariosComponent } from '../usuarios/listaUsuario/listaUsuarios.component';
 import { NovaHomeComponent } from './novaHome/novaHome.component';
+import { ListaUsuarioComponent } from './novoUsuario/novaLista/listaUsuario.component';
 
 
 
@@ -13,11 +13,11 @@ const routes: Routes = [
     
     {
         path: '',
-        component: HomeComponent,
+        component: NovaHomeComponent,
         children: [
             {
                 path: '',
-                component: ListaUsuariosComponent,
+                component: ListaUsuarioComponent,
                 data: {
                     title: 'Home - Catálogo de Habilidades'
                 }

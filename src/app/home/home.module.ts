@@ -14,19 +14,25 @@ import { RequestInterceptor } from '../core/auth/request.intercenptor';
 import { NovaHomeComponent } from './novaHome/novaHome.component';
 import { MenuLateralComponent } from './novaHome/menuLateral/menuLateral.component';
 import { NovoHeaderComponent } from './novoHeader/novoHeader.component';
+import { ListaUsuarioComponent } from './novoUsuario/novaLista/listaUsuario.component';
+import { CardUsuarioComponent } from './novoUsuario/cardUsuario/cardUsuario.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
         NovaHomeComponent,
         MenuLateralComponent,
-        NovoHeaderComponent
+        NovoHeaderComponent,
+        ListaUsuarioComponent,
+        CardUsuarioComponent
     ],
     exports: [
         HomeComponent,
         NovaHomeComponent,
         MenuLateralComponent,
-        NovoHeaderComponent
+        NovoHeaderComponent,
+        ListaUsuarioComponent,
+        CardUsuarioComponent
     ],
     imports: [
         CommonModule,
@@ -34,7 +40,6 @@ import { NovoHeaderComponent } from './novoHeader/novoHeader.component';
         FooterModule,
         RouterModule,
         HabilidadesModule,
-        UsuariosModule,
         HttpClientModule,
         HomeRoutingModule
     ]

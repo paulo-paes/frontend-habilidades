@@ -61,7 +61,6 @@ export class UsuarioService {
 
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
-        console.log("Decode")
         const user = jwt_decode(<string>token) as UsuarioToken;
         this.username = user.nome;
         this.cargo = user.cargo;

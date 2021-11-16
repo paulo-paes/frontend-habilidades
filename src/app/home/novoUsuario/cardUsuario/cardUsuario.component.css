@@ -1,0 +1,45 @@
+.card{
+    border: 1px solid #c7bebe;
+    background-color: white;
+    display: grid;
+    grid-template-areas: "nome" "cargo" "habilidades";
+    grid-template-columns: auto;
+    height: 235px;
+    width: 330px;
+    grid-template-rows: 15% 15% 1fr;
+    margin: 1em;
+    /* gap: .5em; */
+}
+
+.card__nome{
+    grid-area: nome;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: .5em 0 0 .7em;
+    margin: 0;
+}
+
+.card__cargo{
+    grid-area: cargo;
+    font-size: .8rem;
+    font-weight: 300;
+    padding-left: 1em;
+}
+
+.card__habilidades{
+    grid-area: habilidades;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: .7em;
+    border-top: 1px solid #c7bebe;
+}
+
+.card__items{
+    padding: .5em .5em;
+    background-color: red;
+    width: 100px;
+    margin: .1em;
+    height: fit-content;
+    text-align: center;
+}

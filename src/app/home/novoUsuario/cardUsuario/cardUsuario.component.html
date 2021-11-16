@@ -1,0 +1,11 @@
+<div class="card">
+
+    <p class="card__nome">{{usuario.nome}}</p>
+    <p class="card__cargo">{{usuario.cargo}}</p>
+
+    <ul class="card__habilidades">
+        <li class="card__items" *ngFor="let habilidade of usuario.habilidades">
+            {{ habilidade }}
+        </li>
+    </ul>
+</div>
