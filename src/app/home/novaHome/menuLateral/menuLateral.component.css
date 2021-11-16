@@ -26,6 +26,10 @@
     margin-top: 1.5em;
 }
 
+.menu-usuario svg{
+    cursor: pointer;
+}
+
 .nav-paginas{
     height: 100%;
     width: 100%;

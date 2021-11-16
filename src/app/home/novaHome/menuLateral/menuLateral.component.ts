@@ -20,11 +20,18 @@ export class MenuLateralComponent implements OnInit {
 
     ngOnInit(): void {
         this.usuarioService.getUserToken()
-            .subscribe(user => this.userData = user);
+            .subscribe(user => {
+                this.userData = user
+                console.log(user)
+            });
     }
 
     logout(){
         this.usuarioService.logout();
         this.router.navigate(['']);
+    }
+
+    redirecionar(){
+        this.router.navigate(['home', 'usuario', `${this.userData.id}`])
     }
 }
