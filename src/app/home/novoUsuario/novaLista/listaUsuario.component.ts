@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { debounceTime } from "rxjs/operators";
 import { UsuarioService } from "src/app/core/usuario/usuario.service";
 import { Usuario } from "src/app/usuarios/Usuario";
 
@@ -9,6 +10,8 @@ import { Usuario } from "src/app/usuarios/Usuario";
 export class ListaUsuarioComponent implements OnInit{
 
    usuarios: Usuario[];
+   usuariosPagina: Usuario[];
+   paginaAtual: number = 1;
 
    constructor(
        private usuarioService: UsuarioService
@@ -16,11 +19,37 @@ export class ListaUsuarioComponent implements OnInit{
 
 
     ngOnInit(): void {
-        this.usuarioService.getUsuarios()
+        this.usuarioService.getUsuarios(this.paginaAtual)
+            .subscribe(usuarios => {
+                this.usuarios = usuarios
+                this.atualizaArray();
+            })
+    }
+
+    getUsuarios(){
+        this.usuarioService.getUsuarios(this.paginaAtual)
             .subscribe(usuarios => {
                 this.usuarios = usuarios
                 console.log(this.usuarios)
             })
+    }
+
+    atualizaArray(){
+        this.usuariosPagina = this.usuarios.slice((this.paginaAtual * 12) - 12, this.paginaAtual * 12)
+        console.log(this.usuariosPagina)
+    }
+
+    proxima(){
+        this.paginaAtual += 1;
+        this.atualizaArray();
+    }
+
+    anterior(){
+        if(this.paginaAtual > 1){
+            this.paginaAtual -= 1;
+            this.atualizaArray();
+        }
+        
     }
 
    

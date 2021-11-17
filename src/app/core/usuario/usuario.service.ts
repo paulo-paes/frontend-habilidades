@@ -22,8 +22,8 @@ export class UsuarioService {
             this.tokenService.hasToken() && this.decodeAndNotify();
     }
 
-    getUsuarios(){
-        return this.httpClient.get<Usuario[]>(API + 'usuarios')
+    getUsuarios(page: number){
+        return this.httpClient.get<Usuario[]>(API + `usuarios`)
     }
     
     getUsuarioById(id: number | string){

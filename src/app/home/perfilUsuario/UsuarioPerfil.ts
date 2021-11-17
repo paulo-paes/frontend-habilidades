@@ -1,7 +1,7 @@
 import { Habilidade } from "src/app/habilidades/habilidade/Habilidade";
 import { Usuario } from "src/app/usuarios/Usuario";
 
-interface arrayHabilidades {
+export interface arrayHabilidades {
     nivel: number;
     nome: string;
     descricao: string;
@@ -9,7 +9,7 @@ interface arrayHabilidades {
 
 
 export interface UsuarioPerfil {
-    habilidades?: arrayHabilidades[];
+    habilidades: arrayHabilidades[];
     id: number;
     cargo: string;
     email: string;

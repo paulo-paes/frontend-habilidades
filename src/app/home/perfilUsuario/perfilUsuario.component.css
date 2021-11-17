@@ -12,9 +12,9 @@
     height: 85%;
 
     display: grid;
-    grid-template-areas: "dados" "habilidades";
+    grid-template-areas: "dados" "habilidades" "paginacao";
     grid-template-columns: auto;
-    grid-template-rows: 30% 1fr;
+    grid-template-rows: 30% 1fr 8%;
 }
 
 .perfil__dados{
@@ -76,4 +76,32 @@
 
 .tabela__corpo > tr:hover{
     background-color: #33333333;
+}
+
+.paginacao{
+    grid-area: paginacao;
+    display: grid;
+    grid-template-areas: "anterior proxima";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    width: 50%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.paginacao svg:hover{
+    filter: opacity(50%);
+    cursor: pointer;
+}
+
+.paginaAnterior{
+    grid-area: anterior;
+    padding: auto;
+}
+
+.paginaAtual{
+    grid-area: proxima;
 }

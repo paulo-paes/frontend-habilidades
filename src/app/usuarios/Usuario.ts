@@ -5,5 +5,5 @@ export interface Usuario {
     role: string;
     email: string;
     senha?: string;
-    habilidades?: string[]
+    habilidades: string[]
 }
