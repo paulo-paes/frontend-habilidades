@@ -27,11 +27,13 @@ export class FormHabilidadeComponent implements OnInit {
     }
 
     salvar(){
-        const novaHabilidade = this.habilidadeForm.getRawValue() as Habilidade;
-        this.habilidadeService.criaHabilidade(novaHabilidade)
-            .subscribe(() => {
-                this.router.navigate(['home','habilidades']);
-            })
+        if(this.habilidadeForm.valid){
+            const novaHabilidade = this.habilidadeForm.getRawValue() as Habilidade;
+            this.habilidadeService.criaHabilidade(novaHabilidade)
+                .subscribe(() => {
+                    this.router.navigate(['home','habilidades']);
+                })
+        }
     }
 
     cancelar(){

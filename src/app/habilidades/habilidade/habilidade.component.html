@@ -1,19 +1,17 @@
 <div class="habilidades-container">
-    <table class="table table-hover table-bordered">
-        <thead class="table-secondary">
+    <table class="table table-hover">
+        <thead>
             <tr>
-                <th class="espacamento-esquerda_habilidade" scope="col">#</th>
-                <th scope="col">Nome</th>
+                <th class="espacamento-esquerda_habilidade" scope="col">Nome</th>
                 <th scope="col">Descrição</th>
-                <th scope="col">Data de Criação</th>
+                <th class="espacamento-direita_habilidade" scope="col">Data de Criação</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let habilidade of habilidades">
-                <td class="espacamento-esquerda_habilidade">{{ habilidade.id }}</td>
-                <td>{{habilidade.nome}}</td>
+                <td class="espacamento-esquerda_habilidade">{{habilidade.nome}}</td>
                 <td>{{habilidade.descricao}}</td>
-                <td>{{habilidade.createdAt}}</td>
+                <td class="espacamento-direita_habilidade text-center">{{habilidade.createdAt}}</td>
             </tr>
         </tbody>
     </table>

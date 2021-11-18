@@ -1,8 +1,105 @@
+
+.habilidade-input{
+    padding: .8em 2em;
+    border-radius: 3em;
+    outline: none;
+    width: 100%;
+    border: 1px solid #c3c5c7;
+    display: block;
+}
+
+.label-nome{
+    padding-left: 1.2em;
+    margin-bottom: .5em;
+}
+
+.label-descricao{
+    margin-top: 2em;
+}
+
 .form-habilidade{
     max-width: 800px;
+    margin-top: 3rem;
+}
+
+.text-area{
+    width: 100%;
+    border-radius: .3em;
+    padding: .8em;
+    outline: none;
+    border: 1px solid #c3c5c7;
 }
 
 .form-habilidade-botoes{
     display: flex;
     justify-content: space-between;
 }
+
+.habilidade-botao{
+    margin-bottom: 2em;
+    padding: .8em 2em;
+    border-radius: 3em;
+    width: 20%;
+    outline: none;
+    border: none;
+
+    background-size: 150% 100%;
+
+    background-image: linear-gradient(to right, #00d4ff 0%, rgba(9,9,121,1) 100%, rgba(2,0,36,1) 50%);
+    box-shadow: 4px 1px 5px 0px rgb(0 0 0 / 75%);
+    color: white;
+    transition: all .8s ease-in-out;
+}
+
+.habilidade-botao:hover{
+    transition: all .8s ease-in-out;
+    background-position: 80% 0;
+}
+
+/* .cancelar-botao{
+    margin-bottom: 2em;
+    padding: .8em 2em;
+    border-radius: 3em;
+    width: 20%;
+    outline: none;
+    border: none;
+
+    background-size: 150% 100%;
+
+    background-image: linear-gradient(to right, #00d4ff 0%, rgba(9,9,121,1) 100%, rgba(2,0,36,1) 50%);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.75);
+    color: white;
+    transition: all .8s ease-in-out;
+
+    
+} */
+
+/* .cancelar-botao:hover{
+    transition: all .8s ease-in-out;
+    background-position: 80% 0;
+} */
+
+
+.cancelar-botao{background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%)}
+.cancelar-botao{
+
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 3em;
+    display: block;
+    border: none;
+    box-shadow: 4px 1px 5px 0px rgb(0 0 0 / 75%);
+    margin-bottom: 2em;
+    padding: .8em 2em;
+    border-radius: 3em;
+    width: 20%;
+ }
+
+ .cancelar-botao:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

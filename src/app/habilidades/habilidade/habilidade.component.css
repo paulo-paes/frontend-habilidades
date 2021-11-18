@@ -1,7 +1,11 @@
 .habilidades-container{
-    margin-top: 1em;
+    margin-top: 3em;
 }
 
 .espacamento-esquerda_habilidade {
-    padding-left: 4em;
+    padding-left: 7em;
+}
+
+.espacamento-direita_habilidade{
+    padding-right: 4em;
 }
