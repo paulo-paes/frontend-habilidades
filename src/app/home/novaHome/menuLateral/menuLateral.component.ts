@@ -20,10 +20,7 @@ export class MenuLateralComponent implements OnInit {
 
     ngOnInit(): void {
         this.usuarioService.getUserToken()
-            .subscribe(user => {
-                this.userData = user
-                console.log(user)
-            });
+            .subscribe(user => this.userData = user);
     }
 
     logout(){

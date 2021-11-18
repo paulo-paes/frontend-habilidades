@@ -28,15 +28,11 @@ export class ListaUsuarioComponent implements OnInit{
 
     getUsuarios(){
         this.usuarioService.getUsuarios(this.paginaAtual)
-            .subscribe(usuarios => {
-                this.usuarios = usuarios
-                console.log(this.usuarios)
-            })
+            .subscribe(usuarios => this.usuarios = usuarios);
     }
 
     atualizaArray(){
         this.usuariosPagina = this.usuarios.slice((this.paginaAtual * 12) - 12, this.paginaAtual * 12)
-        console.log(this.usuariosPagina)
     }
 
     proxima(){

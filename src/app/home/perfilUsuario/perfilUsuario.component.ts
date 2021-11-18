@@ -29,29 +29,24 @@ export class PerfilUsuarioComponent {
     ngOnInit(): void {
         let arrayUrl = this.router.url.split('/')
         let id = arrayUrl[arrayUrl.length - 1];
-        console.log(id)
         this.usuarioService.getUsuarioById(id)
             .subscribe(user => {
                 this.usuario = user
                 this.atualizaArray();
-                // this.habilidades = this.usuario.habilidades?.slice(0, 6)
-            },
-            err => console.log(err))
+            })
     }
 
     atualizaArray(){
         this.habilidades = this.usuario.habilidades.slice((this.paginaAtual * 6) - 6, this.paginaAtual * 6)
-        console.log(this.habilidades)
     }
 
     proxima(){
         this.paginaAtual += 1;
-        console.log(this.paginaAtual)
         this.atualizaArray();
     }
 
     anterior(){
         this.paginaAtual -= 1;
-        this.atualizaArray();''
+        this.atualizaArray();
     }
 }
