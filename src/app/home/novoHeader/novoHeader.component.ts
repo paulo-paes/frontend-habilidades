@@ -18,7 +18,9 @@ export class NovoHeaderComponent implements OnInit{
     ngOnInit(): void {
         this.usuarioService.getUserToken()
             .subscribe(user => {
-                this.nome = user.nome.split(' ')[0];
+                if(user){
+                    this.nome = user.nome.split(' ')[0];
+                }
             })
     }
 }

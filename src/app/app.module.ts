@@ -19,8 +19,7 @@ import { LoginModule } from './login/login.module';
     LoginModule,
     RouterModule,
     HttpClientModule,
-    AppRoutingModule,
-    HomeModule
+    AppRoutingModule
   ],
   providers: [
     {

@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit{
             this.authService.authenticate(usuario)
                 .subscribe(() => {
                     this.router.navigate(['home'])
-                    console.log("teste")
                 },
                 () => this.erroLogado = true)
         }
