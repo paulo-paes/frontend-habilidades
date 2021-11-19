@@ -7,6 +7,7 @@ import { CadastroComponent } from './login/cadastro/cadastro.component';
 
 
 import { LoginComponent } from './login/login/login.component';
+import { RecuperarSenhaComponent } from './login/recuperarSenha/recuperarSenha.component';
 
 
 const routes: Routes = [
@@ -37,7 +38,7 @@ const routes: Routes = [
   }, */
   {
     path: 'teste',
-    component: NovaHomeComponent
+    component: RecuperarSenhaComponent
   }
 ];
 

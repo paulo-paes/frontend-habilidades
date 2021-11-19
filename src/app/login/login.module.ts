@@ -6,17 +6,20 @@ import { RouterModule } from '@angular/router';
 import { VMessageModule } from '../shared/vmessage/vmessage.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
+import { RecuperarSenhaComponent } from './recuperarSenha/recuperarSenha.component';
 
 
 
 @NgModule({
     declarations: [
         LoginComponent,
-        CadastroComponent
+        CadastroComponent,
+        RecuperarSenhaComponent
     ],
     exports: [
         LoginComponent,
-        CadastroComponent
+        CadastroComponent,
+        RecuperarSenhaComponent
     ],
     imports: [
         CommonModule,
