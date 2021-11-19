@@ -1,7 +1,7 @@
 <div class="container-recuperar-senha">
     <div class="recuperar-senha">
         <div class="card-recuperar-senha zindex1">
-            <form class="form-recuperar-senha" >
+            <form [formGroup]="recuperarSenhaForm" class="form-recuperar-senha" (submit)="enviarEmail($event)">
                 <p class="recuperar-senha-label">Recuperar Senha</p>
                 <p class="recuperar-senha-description">Um email de recuperação de senha será enviado.</p>                
                 <div class="inputEmail inputEntrada">
