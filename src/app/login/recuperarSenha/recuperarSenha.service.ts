@@ -15,4 +15,13 @@ export class RecuperarSenhaService {
     enviaEmail(email: Object){
         return this.http.post(API + 'recuperarsenha', email)
     }
+
+    enviaCodigo(dados: Object){
+        return this.http.post(API + 'recuperarsenha/codigo', dados)
+    }
+
+    enviaSenha(dados: Object){
+        return this.http.post(API + 'recuperarsenha/senha', dados)
+    }
+
 }

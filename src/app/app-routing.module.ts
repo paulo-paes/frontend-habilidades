@@ -37,8 +37,11 @@ const routes: Routes = [
     redirectTo: ''
   }, */
   {
-    path: 'teste',
-    component: RecuperarSenhaComponent
+    path: 'esquecisenha',
+    component: RecuperarSenhaComponent,
+    data: {
+      title: 'Recuperar Senha - Catálogo de Habilidades'
+    }
   }
 ];
 
