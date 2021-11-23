@@ -17,6 +17,10 @@
     cursor: pointer;
 }
 
+.btn-excluir:hover, .btn-editar:hover{
+    color: #03045e;
+}
+
 .btn-editar {
     display: inline;
     color: rgb(187, 187, 44);

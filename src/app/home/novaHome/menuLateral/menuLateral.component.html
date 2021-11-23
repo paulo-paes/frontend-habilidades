@@ -25,6 +25,9 @@
                 <li [routerLink]="['vincular-habilidade']" class="list-item">
                     <a><i class="bi bi-file-plus me-3"></i>Vincular Habilidade</a>
                 </li>
+                <li [routerLink]="['logs']" class="list-item" *ngIf="isGestor">
+                    <a><i class="bi bi-body-text me-3"></i>Logs</a>
+                </li>
             </div>
         </ul>
     </nav>

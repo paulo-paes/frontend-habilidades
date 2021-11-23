@@ -38,12 +38,17 @@ export class UsuarioService {
         return this.httpClient.post(API + `usuarios/${id}/habilidades`, vinculaHabUser)
     }
 
+    desvinculaUsuarioHabilidade(id: string | number, idHabilidade: string | number){
+        return this.httpClient.delete(API + `usuarios/${id}/habilidades/${idHabilidade}`)
+    }
+
     setToken(token: string) {
         this.tokenService.setToken(token);
         this.decodeAndNotify();
     }
 
     logout() {
+        this.httpClient.post(API + 'logs/logout', {}).subscribe()
         this.tokenService.removeToken();
         this.userSubject.next(<UsuarioToken><unknown>null);
     }

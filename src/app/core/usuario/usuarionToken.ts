@@ -3,4 +3,5 @@ export interface UsuarioToken {
     nome: string;
     cargo: string;
     role: string;
+    email: string;
 }

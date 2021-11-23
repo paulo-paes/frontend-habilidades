@@ -17,6 +17,7 @@ import { NovoHeaderComponent } from './novoHeader/novoHeader.component';
 import { ListaUsuarioComponent } from './novoUsuario/novaLista/listaUsuario.component';
 import { CardUsuarioComponent } from './novoUsuario/cardUsuario/cardUsuario.component';
 import { PerfilUsuarioComponent } from './perfilUsuario/perfilUsuario.component';
+import { LogsComponent } from './logs/logs.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { PerfilUsuarioComponent } from './perfilUsuario/perfilUsuario.component'
         NovoHeaderComponent,
         ListaUsuarioComponent,
         CardUsuarioComponent,
-        PerfilUsuarioComponent
+        PerfilUsuarioComponent,
+        LogsComponent
     ],
     exports: [
         HomeComponent,
@@ -35,7 +37,8 @@ import { PerfilUsuarioComponent } from './perfilUsuario/perfilUsuario.component'
         NovoHeaderComponent,
         ListaUsuarioComponent,
         CardUsuarioComponent,
-        PerfilUsuarioComponent
+        PerfilUsuarioComponent,
+        LogsComponent
     ],
     imports: [
         CommonModule,

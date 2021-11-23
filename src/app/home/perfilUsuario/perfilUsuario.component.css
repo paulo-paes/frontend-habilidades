@@ -57,7 +57,6 @@
 
 .tabela__cabecalho th{
     margin: 5px;  
-    width: 50%;
     text-align: center;
 }
 
@@ -100,4 +99,13 @@
 
 .paginaAtual{
     grid-area: proxima;
+}
+
+.tabela__remover{
+    color: brown;
+    cursor: pointer;
+}
+
+.tabela__remover:hover{
+    color: #03045e;
 }

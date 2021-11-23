@@ -4,6 +4,7 @@ import { EditarHabilidadeComponent } from '../habilidades/formHabilidade/editarH
 import { FormHabilidadeComponent } from '../habilidades/formHabilidade/formHabilidade.component';
 import { HabilidadeComponent } from '../habilidades/habilidade/habilidade.component';
 import { FormUsuarioHabilidadeComponent } from '../usuarios/formUsuarioHabilidade/formUsuarioHabilidade.component';
+import { LogsComponent } from './logs/logs.component';
 // import { ListaUsuariosComponent } from '../usuarios/listaUsuario/listaUsuarios.component';
 import { NovaHomeComponent } from './novaHome/novaHome.component';
 import { ListaUsuarioComponent } from './novoUsuario/novaLista/listaUsuario.component';
@@ -56,7 +57,14 @@ const routes: Routes = [
                 path: 'usuario/:id',
                 component: PerfilUsuarioComponent,
                 data: {
-                    title: 'Catálogo de Habilidades'
+                    title: 'Perfil - Catálogo de Habilidades'
+                }
+            },
+            {
+                path: 'logs',
+                component: LogsComponent,
+                data: {
+                    title: 'Logs - Catálogo de Habilidades'
                 }
             }
         ]
