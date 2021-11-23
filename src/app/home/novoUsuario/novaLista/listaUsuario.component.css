@@ -16,12 +16,6 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 2em;
-
-
-
-    /* display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 33.33% 33.33% 33.33%; */
 }
 
 .listaPaginacao{
@@ -56,6 +50,6 @@
 }
 
 .listaPagina{
-    padding: 0 1.5em;
+    padding: 0 1em;
     grid-area: numero;
 }

@@ -22,8 +22,10 @@ export class MenuLateralComponent implements OnInit {
     ngOnInit(): void {
         this.usuarioService.getUserToken()
             .subscribe(user => {
-                this.userData = user
-                this.isGestor = user.role === 'gestor'
+                if(user){
+                    this.userData = user
+                    this.isGestor = user.role === 'gestor'
+                }
             });
     }
 
