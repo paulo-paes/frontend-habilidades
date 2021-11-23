@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { isGestorGuard } from '../core/auth/isGestor.guard';
 import { EditarHabilidadeComponent } from '../habilidades/formHabilidade/editarHabilidade/editarHabilidade.component';
 import { FormHabilidadeComponent } from '../habilidades/formHabilidade/formHabilidade.component';
 import { HabilidadeComponent } from '../habilidades/habilidade/habilidade.component';
@@ -37,11 +38,13 @@ const routes: Routes = [
                 component: FormHabilidadeComponent,
                 data: {
                     title: 'Nova Habilidade - Catálogo de Habilidades'
-                }
+                },
+                canActivate: [isGestorGuard],
             },
             {
                 path: 'editar-habilidade/:id',
                 component: EditarHabilidadeComponent,
+                canActivate: [isGestorGuard],
                 data: {
                     title: 'Editar Habilidade - Catálogo de Habilidades'
                 }
@@ -63,6 +66,7 @@ const routes: Routes = [
             {
                 path: 'logs',
                 component: LogsComponent,
+                canActivate: [isGestorGuard],
                 data: {
                     title: 'Logs - Catálogo de Habilidades'
                 }
