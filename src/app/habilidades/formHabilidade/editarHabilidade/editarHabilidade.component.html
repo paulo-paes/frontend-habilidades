@@ -1,0 +1,18 @@
+<form #formEditar="ngForm" [formGroup]="editarForm" class="container form-habilidade">
+    <label for="inputNome" class="label-nome">Nome</label>
+    <input class="habilidade-input" formControlName="nome" id="inputNome" type="text">
+    <p class="danger text-muted ms-3 mt-1" *ngIf="editarForm?.get('nome')?.errors?.required">
+        Por favor, digite um nome.
+    </p>
+
+    <label for="inputDescricao" class="label-descricao label-nome">Descrição</label>
+    <textarea class="text-area" formControlName="descricao" id="inputDescricao"rows="5"></textarea>
+    <p class="danger text-muted  ms-3 mt-1" *ngIf="editarForm?.get('descricao')?.errors?.maxlength">
+        A descrição máxima é de 300 caracteres.
+    </p>
+
+    <div class="form-habilidade-botoes mt-4">
+        <button class="cancelar-botao" (click)="cancelar()">Cancelar</button>
+        <button class="habilidade-botao" (click)="salvar()">Salvar</button>
+    </div>
+</form>

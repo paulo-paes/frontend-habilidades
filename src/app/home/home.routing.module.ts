@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditarHabilidadeComponent } from '../habilidades/formHabilidade/editarHabilidade/editarHabilidade.component';
 import { FormHabilidadeComponent } from '../habilidades/formHabilidade/formHabilidade.component';
 import { HabilidadeComponent } from '../habilidades/habilidade/habilidade.component';
 import { FormUsuarioHabilidadeComponent } from '../usuarios/formUsuarioHabilidade/formUsuarioHabilidade.component';
@@ -35,6 +36,13 @@ const routes: Routes = [
                 component: FormHabilidadeComponent,
                 data: {
                     title: 'Nova Habilidade - Catálogo de Habilidades'
+                }
+            },
+            {
+                path: 'editar-habilidade/:id',
+                component: EditarHabilidadeComponent,
+                data: {
+                    title: 'Editar Habilidade - Catálogo de Habilidades'
                 }
             },
             {

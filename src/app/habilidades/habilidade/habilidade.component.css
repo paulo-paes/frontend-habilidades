@@ -9,3 +9,17 @@
 .espacamento-direita_habilidade{
     padding-right: 4em;
 }
+
+
+.btn-excluir {
+    display: inline;
+    color: brown;
+    cursor: pointer;
+}
+
+.btn-editar {
+    display: inline;
+    color: rgb(187, 187, 44);
+    margin-right: .5em;
+    cursor: pointer;
+}

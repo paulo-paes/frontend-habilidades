@@ -14,7 +14,19 @@ export class HabilidadeService {
         return this.httpClient.get<Habilidade[]>(API + 'habilidades')
     }
 
+    getHabilidadePorId(id: number | string) {
+        return this.httpClient.get<Habilidade>(API + `habilidades/${id}`)
+    }
+
+    editarHabilidade(id: string | number, habilidade: Habilidade){
+        return this.httpClient.put(API + `habilidades/${id}`, habilidade)
+    }
+
     criaHabilidade(novaHabilidade: Habilidade){
         return this.httpClient.post(API + 'habilidades', novaHabilidade)
+    }
+
+    deletaHabilidade(id: number | string){
+        return this.httpClient.delete(API + `habilidades/${id}`)
     }
 }

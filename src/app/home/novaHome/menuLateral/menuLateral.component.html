@@ -19,7 +19,7 @@
                 <li [routerLink]="['habilidades']" class="list-item">
                     <a><i class="bi bi-table me-3"></i>Habilidades</a>
                 </li>
-                <li [routerLink]="['nova-habilidade']" class="list-item">
+                <li [routerLink]="['nova-habilidade']" *ngIf="isGestor" class="list-item">
                     <a><i class="bi bi-speedometer2 me-3"></i>Adicionar Habilidade</a>
                 </li>
                 <li [routerLink]="['vincular-habilidade']" class="list-item">

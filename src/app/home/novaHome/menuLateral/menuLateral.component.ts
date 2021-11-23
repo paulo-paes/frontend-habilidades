@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
-import { filter, map } from "rxjs/operators";
+import { Router } from "@angular/router";
 import { UsuarioService } from "src/app/core/usuario/usuario.service";
+import { UsuarioToken } from "src/app/core/usuario/usuarionToken";
 
 @Component({
     selector: 'cat-menu-lateral',
@@ -10,7 +10,8 @@ import { UsuarioService } from "src/app/core/usuario/usuario.service";
 })
 export class MenuLateralComponent implements OnInit {
     
-    userData: any;
+    userData: UsuarioToken;
+    isGestor: Boolean = false;
 
     constructor(
         private usuarioService: UsuarioService,
@@ -20,7 +21,10 @@ export class MenuLateralComponent implements OnInit {
 
     ngOnInit(): void {
         this.usuarioService.getUserToken()
-            .subscribe(user => this.userData = user);
+            .subscribe(user => {
+                this.userData = user
+                this.isGestor = user.role === 'gestor'
+            });
     }
 
     logout(){
