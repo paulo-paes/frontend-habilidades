@@ -9,6 +9,8 @@ import { LogsService } from "./logs.service";
 export class LogsComponent implements OnInit {
 
     logs: Logs[];
+    logsAtual: Logs[];
+    paginaAtual = 1;
 
     constructor(
         private logsService: LogsService
@@ -28,8 +30,12 @@ export class LogsComponent implements OnInit {
                         dataHora: this.formataData(log.createdAt)
                     }
                 })
-                console.log(this.logs)
+                this.atualizaPagina()
             })
+    }
+
+    atualizaPagina(){
+        this.logsAtual = this.logs.slice((this.paginaAtual * 18) - 18, this.paginaAtual * 18)
     }
 
     formataData(data: Date){
@@ -37,6 +43,20 @@ export class LogsComponent implements OnInit {
         let dataFormatada = ((dataNaoFormatada.getDate())) + "/" + ((dataNaoFormatada.getMonth() + 1)) + "/" + dataNaoFormatada.getFullYear();
         let horaFormatada = ((dataNaoFormatada.getHours()) + ":" + (dataNaoFormatada.getMinutes()))
         return {data: dataFormatada, hora: horaFormatada}
+    }
+
+    proximo(){
+        if(this.logs[this.logs.length - 1] != this.logsAtual[this.logsAtual.length - 1]){
+            this.paginaAtual += 1;
+            this.atualizaPagina()
+        }
+    }
+
+    anterior(){
+        if(this.paginaAtual > 1){
+            this.paginaAtual -= 1;
+            this.atualizaPagina()
+        }
     }
     
 }
