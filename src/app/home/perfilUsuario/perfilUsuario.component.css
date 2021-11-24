@@ -4,7 +4,6 @@
 }
 
 .perfil__usuario{
-    background-color: #fdfdfd;
     box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.199);
     border-radius: 1rem;
     margin: 3rem;
@@ -23,6 +22,43 @@
     padding-top: 1em;
     padding-left: 3em;
     border-bottom: 1px solid rgba(51, 51, 51, 0.397);
+}
+
+.perfil__photo{
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil__photo input{
+    display: none;
+}
+
+.perfil__photo button{
+    margin-top: 1em;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 3em;
+    background-size: 150% 100%;
+    transition: all .8s ease-in-out;
+    background-image: linear-gradient(to right, #00d4ff 0%, rgba(9,9,121,1) 100%, rgba(2,0,36,1) 50%);
+    box-shadow: 4px 1px 5px 0px rgb(0 0 0 / 75%);
+}
+
+.perfil__photo button:hover{
+    transition: all .8s ease-in-out;
+    background-position: 80% 0;
+}
+
+.perfil__done{
+    font-size: 1.5em;
+    color: green;
+    align-self: center;
+    display: none;
+}
+
+.perfil__done--display{
+    display: inline;
 }
 
 

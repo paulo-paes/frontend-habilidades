@@ -1,8 +1,9 @@
+import { HttpEvent, HttpEventType } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { UsuarioService } from "src/app/core/usuario/usuario.service";
 import { UsuarioToken } from "src/app/core/usuario/usuarionToken";
-import { HabilidadeService } from "src/app/habilidades/habilidade/habilidade.service";
+import { environment } from "src/environments/environment";
 import { arrayHabilidades, UsuarioPerfil } from "./UsuarioPerfil";
 
 @Component({
@@ -14,14 +15,17 @@ export class PerfilUsuarioComponent {
     habilidades: arrayHabilidades[] = [];
     paginaAtual: number = 1;
     userToken: UsuarioToken;
+    userPhotoUrl: string | null = null;
     isGestor: boolean = false;
+    done = false;
     isSameUser: boolean = false;
     usuario: UsuarioPerfil = {
         habilidades: [],
         id: 0,
         nome: '',
         cargo: '',
-        email: ''
+        email: '',
+        photo_url: ''
     };
 
     constructor(
@@ -48,6 +52,7 @@ export class PerfilUsuarioComponent {
                 this.usuario = user
                 this.isSameUser = this.usuario.id == this.userToken.id;
                 this.atualizaArray();
+                this.userPhotoUrl = environment.API + 'usuarios/photo/' + user.photo_url
             })
     }
 
@@ -68,5 +73,16 @@ export class PerfilUsuarioComponent {
     anterior(){
         this.paginaAtual -= 1;
         this.atualizaArray();
+    }
+
+    uploadPhoto(event: any){
+        this.usuarioService.uploadPhoto(event.target.files[0])
+            .subscribe((event: HttpEvent<any>) => {
+                if(event.type == HttpEventType.Response){
+                    this.done = true;
+                    this.getUser()
+                }
+
+            })
     }
 }

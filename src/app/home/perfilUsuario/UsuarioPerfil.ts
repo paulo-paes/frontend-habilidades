@@ -15,4 +15,5 @@ export interface UsuarioPerfil {
     cargo: string;
     email: string;
     nome: string;
+    photo_url: string;
 }

@@ -69,6 +69,12 @@ export class UsuarioService {
         return this.userSubject.asObservable();
     }
 
+    uploadPhoto(file: any){
+        const formData = new FormData();
+        formData.append('avatar', file)
+        return this.httpClient.put(API + 'usuarios', formData, { observe: 'events', reportProgress: true})
+    }
+
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
         const user = jwt_decode(<string>token) as UsuarioToken;

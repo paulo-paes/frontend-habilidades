@@ -1,10 +1,16 @@
 <section class="perfil">
     <div class="perfil__usuario">
         <div class="perfil__dados">
-            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-            </svg>
+            <div class="perfil__photo">
+                <img *ngIf="usuario.photo_url" [src]="userPhotoUrl" width="128" height="128" alt="" srcset="">
+                <svg *ngIf="!usuario.photo_url" xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+                <i class="bi bi-check2-circle perfil__done" [ngClass]="{'perfil__done--display': done}"></i> 
+                <button *ngIf="isSameUser && !done" (click)="fileInput.click()">Enviar Foto</button>
+                <input (change)="uploadPhoto($event)" #fileInput type="file" name="avatar" accept="image/png, image/gif, image/jpeg">
+            </div>
             <div class="dados__pessoais">
                 <div class="dados__id">ID: {{usuario.id}}</div>
                 <div class="dados__nome">Nome: {{usuario.nome}}</div>
