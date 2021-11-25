@@ -16,6 +16,7 @@ export class UsuarioService {
     private userSubject = new BehaviorSubject<UsuarioToken>(<UsuarioToken><unknown>null);
     private username: string;
     private cargo: string;
+    private userId: number;
 
     constructor(private httpClient: HttpClient,
         private tokenService: TokenService) {
@@ -75,11 +76,16 @@ export class UsuarioService {
         return this.httpClient.put(API + 'usuarios', formData, { observe: 'events', reportProgress: true})
     }
 
+    getPhotoUrl(){
+        return this.getUsuarioById(this.userId)
+    }
+
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
         const user = jwt_decode(<string>token) as UsuarioToken;
         this.username = user.nome;
         this.cargo = user.cargo;
+        this.userId = user.id;
         this.userSubject.next(user);
     }
 

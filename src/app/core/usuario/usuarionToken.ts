@@ -4,4 +4,5 @@ export interface UsuarioToken {
     cargo: string;
     role: string;
     email: string;
+    photo_url: string;
 }
