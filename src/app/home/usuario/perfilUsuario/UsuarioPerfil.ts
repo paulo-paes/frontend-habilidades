@@ -1,6 +1,3 @@
-import { Habilidade } from "src/app/habilidades/habilidade/Habilidade";
-import { Usuario } from "src/app/usuarios/Usuario";
-
 export interface arrayHabilidades {
     id: number;
     nivel: number;

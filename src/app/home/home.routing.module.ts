@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+
 import { isGestorGuard } from '../core/auth/isGestor.guard';
 import { EditarHabilidadeComponent } from '../habilidades/formHabilidade/editarHabilidade/editarHabilidade.component';
 import { FormHabilidadeComponent } from '../habilidades/formHabilidade/formHabilidade.component';
 import { HabilidadeComponent } from '../habilidades/habilidade/habilidade.component';
-import { FormUsuarioHabilidadeComponent } from '../usuarios/formUsuarioHabilidade/formUsuarioHabilidade.component';
+import { FormUsuarioHabilidadeComponent } from './usuario/formUsuarioHabilidade/formUsuarioHabilidade.component';
 import { LogsComponent } from './logs/logs.component';
-// import { ListaUsuariosComponent } from '../usuarios/listaUsuario/listaUsuarios.component';
-import { NovaHomeComponent } from './novaHome/novaHome.component';
-import { ListaUsuarioComponent } from './novoUsuario/novaLista/listaUsuario.component';
-import { PerfilUsuarioComponent } from './perfilUsuario/perfilUsuario.component';
+
+import { ListaUsuarioComponent } from './usuario/listaUsuario/listaUsuario.component';
+import { PerfilUsuarioComponent } from './usuario/perfilUsuario/perfilUsuario.component';
+import { HomeComponent } from './paginaInicial/home.component';
 
 
 
@@ -17,7 +19,7 @@ const routes: Routes = [
     
     {
         path: '',
-        component: NovaHomeComponent,
+        component: HomeComponent,
         children: [
             {
                 path: '',

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { debounceTime } from 'rxjs/operators';
 import { UsuarioService } from 'src/app/core/usuario/usuario.service';
-import { Usuario } from 'src/app/usuarios/Usuario';
+import { UsuarioPerfil } from 'src/app/home/usuario/perfilUsuario/UsuarioPerfil';
 import { EmailCadastradoValidatorService } from './emailCadastrado.validator.service';
 
 @Component({
@@ -46,7 +45,7 @@ export class CadastroComponent implements OnInit {
     salvar(event: Event){
         event.preventDefault();
         if(this.registerForm.valid && !this.registerForm.pending){
-            const novoUsuario = this.registerForm.getRawValue() as Usuario;
+            const novoUsuario = this.registerForm.getRawValue() as UsuarioPerfil;
             this.usuarioService.criaUsuario(novoUsuario)
             .subscribe(() => {
                     this.router.navigate([''], {queryParams: {created: true}});

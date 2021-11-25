@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Usuario } from "src/app/usuarios/Usuario";
+import { UsuarioPerfil } from "../perfilUsuario/UsuarioPerfil";
+
 
 @Component({
     selector: 'cat-card-usuario',
@@ -8,7 +9,7 @@ import { Usuario } from "src/app/usuarios/Usuario";
     styleUrls: ['./cardUsuario.component.css']
 })
 export class CardUsuarioComponent implements OnInit {
-    @Input() usuario: Usuario;
+    @Input() usuario: UsuarioPerfil;
 
     constructor(private router: Router) {}
 

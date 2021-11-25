@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { debounceTime } from "rxjs/operators";
 import { UsuarioService } from "src/app/core/usuario/usuario.service";
-import { Usuario } from "src/app/usuarios/Usuario";
+import { UsuarioPerfil } from "../perfilUsuario/UsuarioPerfil";
+
 
 @Component({
     templateUrl: './listaUsuario.component.html',
@@ -9,8 +9,8 @@ import { Usuario } from "src/app/usuarios/Usuario";
 })
 export class ListaUsuarioComponent implements OnInit{
 
-   usuarios: Usuario[];
-   usuariosPagina: Usuario[];
+   usuarios: UsuarioPerfil[];
+   usuariosPagina: UsuarioPerfil[];
    paginaAtual: number = 1;
 
    constructor(

@@ -3,10 +3,10 @@ import { UsuarioService } from "src/app/core/usuario/usuario.service";
 
 @Component({
     selector: 'cat-header-home',
-    templateUrl: './novoHeader.component.html',
-    styleUrls: ['./novoHeader.component.css']
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css']
 })
-export class NovoHeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit{
 
     nome: string = '';
 

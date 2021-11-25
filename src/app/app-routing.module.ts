@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticatedGuard } from './core/auth/autenticated.guard';
 import { AuthGuard } from './core/auth/auth.guard';
-import { NovaHomeComponent } from './home/novaHome/novaHome.component';
 import { CadastroComponent } from './login/cadastro/cadastro.component';
 
 
