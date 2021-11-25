@@ -13,6 +13,7 @@
             <label for="inputNivel" class="form-label mt-4">Nível</label>
             <input type="number" class="form-control" placeholder="Nível" min="1" max="5" formControlName="nivel" id="inputNivel">
             <cat-vmessage *ngIf="usuarioHabForm.get('nivel')?.errors?.required && formUsuarioHabilidade.submitted" text="O nível mínimo é 1"></cat-vmessage>
+            <cat-vmessage *ngIf="usuarioHabForm.get('nivel')?.errors?.pattern" text="O nível deve estar entre 1 e 5"></cat-vmessage>
         </div>
     </div>
 

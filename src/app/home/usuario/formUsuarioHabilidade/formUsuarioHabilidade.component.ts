@@ -34,7 +34,7 @@ export class FormUsuarioHabilidadeComponent implements OnInit {
             nivel: [1, 
                 [
                     Validators.required,
-                    Validators.pattern(/([1-5])/g)
+                    Validators.pattern('^[1-5]$')
                 ]
             ]
         })
