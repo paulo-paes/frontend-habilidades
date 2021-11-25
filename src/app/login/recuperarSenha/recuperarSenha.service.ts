@@ -11,6 +11,7 @@ export class RecuperarSenhaService {
     constructor(
         private http: HttpClient
     ) {}
+    
 
     enviaEmail(email: Object){
         return this.http.post(API + 'recuperarsenha', email)

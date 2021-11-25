@@ -4,6 +4,7 @@
             <form #formLogin="ngForm" [formGroup]="loginForm" class="form-login" (submit)="logar($event)">
                 <p class="login-label">Login</p>
                 <small *ngIf="registerSuccess" class="text-success mensagem-sucesso">Conta Criada com sucesso!</small>
+                <small *ngIf="changedPassword" class="text-success mensagem-sucesso">Senha redefinida com sucesso!</small>
                 <div class="inputLogin">
                     <input formControlName="email" class="login-input" type="text" placeholder="Email">
                     <cat-vmessage *ngIf="loginForm.get('email')?.errors?.required && (loginForm.get('email')?.touched || formLogin.submitted)"
@@ -18,6 +19,7 @@
                         text="Por favor, digite uma senha"></cat-vmessage>
                     <cat-vmessage *ngIf="(loginForm.get('senha')?.errors?.minlength || loginForm.get('senha')?.errors?.maxlength) && formLogin.submitted"
                         text="Senha inválida"></cat-vmessage>
+                    <cat-vmessage *ngIf="erroLogado" text="Email e/ou senha inválidos"></cat-vmessage>
                 </div>
                 <button class="login-botao" type="submit">Entrar</button>
                 <a [routerLink]="['esquecisenha']" class="login-esqueci-senha">Esqueci minha senha</a>

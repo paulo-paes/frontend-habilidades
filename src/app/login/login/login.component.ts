@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit{
     loginForm: FormGroup;
     erroLogado: boolean = false;
     registerSuccess = false;
+    changedPassword = false;
 
     constructor(
         private authService: AuthService,
@@ -26,7 +27,11 @@ export class LoginComponent implements OnInit{
     ngOnInit(): void {
         this.activatedRoute.queryParams.subscribe(params => {
             this.registerSuccess = params.created;
-            setTimeout(() => this.registerSuccess = false, 2500)
+            this.changedPassword = params.pass;
+            setTimeout(() => {
+                this.registerSuccess = false;
+                this.changedPassword = false;
+            }, 2500)
         })
         this.loginForm = this.formBuilder.group({
             email: ['', 

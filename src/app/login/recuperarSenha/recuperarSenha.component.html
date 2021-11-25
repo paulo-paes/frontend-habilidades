@@ -6,7 +6,9 @@
                 <p class="recuperar-senha-description">Um email de recuperação de senha será enviado.</p>                
                 <div class="inputEmail inputEntrada">
                     <input formControlName="email" class="recuperar-senha-input" type="text" placeholder="Digite seu email">
-                    <p class="alerta-cadastro" *ngIf="recuperarSenhaForm.get('email')?.errors?.email && (recuperarSenhaForm.get('email')?.touched || formSenha.submitted )">Email Inválido</p>
+                    <cat-vmessage *ngIf="recuperarSenhaForm.get('email')?.errors?.email && (recuperarSenhaForm.get('email')?.touched || formSenha.submitted )" text="Email Inválido"></cat-vmessage>
+                    <cat-vmessage text="Email não cadastrado" *ngIf="erroEmail"></cat-vmessage>
+
                 </div>
                 <button class="recuperar-senha-botao" type="submit">Enviar Email</button>
                 <a (click)="voltar()" class="voltar-login">Voltar</a>
@@ -17,6 +19,7 @@
                     <p *ngIf="emailEnviado" class="alerta-email">Email enviado!</p>
                     <p class="recuperar-senha-description">Verique o código que foi enviado ao seu email</p>
                     <input formControlName="codigo" class="recuperar-senha-input" type="text" placeholder="Digite o codigo">
+                    <cat-vmessage *ngIf="codigoInvalido" text="Código Inválido"></cat-vmessage>
                     <button class="recuperar-senha-botao margin-top" (click)="enviarCodigo($event)" type="submit">Enviar Codigo</button>
                 </form>
 
@@ -25,7 +28,15 @@
                     <p *ngIf="codigoCorreto" class="alerta-email">Código Correto</p>
                     <p class="recuperar-senha-description margin-0">Digite sua nova senha</p>
                     <input formControlName="senha" class="recuperar-senha-input margin-top" type="password" placeholder="Senha">
+                    <cat-vmessage *ngIf="novaSenhaForm.get('senha')?.errors?.required && novaSenhaForm.get('senha')?.touched" text="Por favor, digite uma senha"></cat-vmessage>
+                    <cat-vmessage *ngIf="novaSenhaForm.get('senha')?.errors?.minlength && novaSenhaForm.get('senha')?.touched" text="A Senha deve conter no mínimo 8 caracteres"></cat-vmessage>
+                    <cat-vmessage *ngIf="novaSenhaForm.get('senha')?.errors?.maxlength && novaSenhaForm.get('senha')?.touched" text="A Senha deve conter no máximo 16 caracteres"></cat-vmessage>
                     <input formControlName="confirmarSenha" class="recuperar-senha-input margin-top" type="password" placeholder="Confirmar senha">
+                    <cat-vmessage *ngIf="novaSenhaForm.get('confirmarSenha')?.errors?.required && novaSenhaForm.get('confirmarSenha')?.touched" text="Por favor, confirme sua senha"></cat-vmessage>
+                    <cat-vmessage *ngIf="novaSenhaForm.get('confirmarSenha')?.errors?.minlength && novaSenhaForm.get('confirmarSenha')?.touched" text="A Senha deve conter no mínimo 8 caracteres"></cat-vmessage>
+                    <cat-vmessage *ngIf="novaSenhaForm.get('confirmarSenha')?.errors?.maxlength && novaSenhaForm.get('confirmarSenha')?.touched" text="A Senha deve conter no máximo 16 caracteres"></cat-vmessage>
+                    <cat-vmessage *ngIf="novaSenhaForm.errors?.senhasDiferentes" text="As senhas são diferentes"></cat-vmessage>
+                    
                     <button class="recuperar-senha-botao margin-top" type="submit" (click)="enviarSenha($event)">Enviar nova senha</button>
                 </form>
         </div>
