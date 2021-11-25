@@ -109,3 +109,14 @@
     margin: 0;
 }
 
+.alerta-email{
+    border: 1px solid greenyellow;
+    color: green;
+    padding: 1em 2em;
+}
+
+.alerta-cadastro{
+    color: brown;
+    margin-top: 1em;
+}
+

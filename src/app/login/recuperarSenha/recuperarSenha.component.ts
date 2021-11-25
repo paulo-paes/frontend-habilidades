@@ -8,19 +8,20 @@ import { RecuperarSenhaService } from "./recuperarSenha.service";
     templateUrl: './recuperarSenha.component.html',
     styleUrls: ['./recuperarSenha.component.css']
 })
-export class RecuperarSenhaComponent implements OnInit, OnChanges {
+export class RecuperarSenhaComponent implements OnInit {
 
     recuperarSenhaForm: FormGroup;
     codigoForm: FormGroup;
     novaSenhaForm: FormGroup;
-    exibir = 2;
+    exibir = 0;
+    emailEnviado = true;
+    codigoCorreto = true;
     dados: any = {};
     codigoUuid = '';
 
     constructor(
         private router: Router,
         private formBuilder: FormBuilder,
-        private emailCadastroValidatorService: EmailCadastradoValidatorService,
         private recuperarSenhaService: RecuperarSenhaService
     ) {}
 
@@ -36,33 +37,21 @@ export class RecuperarSenhaComponent implements OnInit, OnChanges {
             senha: ['', Validators.required],
             confirmarSenha: ['', Validators.required]
         })
-        this.exibir = 0;
         this.codigoUuid = '';
-    }
-
-    ngOnChanges(){
-        // if(this.exibir == 1){
-        //     this.codigoForm = this.formBuilder.group({
-        //         codigo: ['', [Validators.required]]
-        //     })
-        // }else if(this.exibir == 2){
-        //     this.novaSenhaForm = this.formBuilder.group({
-        //         senha: ['', Validators.required],
-        //         confirmarSenha: ['', Validators.required]
-        //     })
-        // }
     }
 
     enviarEmail(event: Event){
         event.preventDefault();
         const email: Object = this.recuperarSenhaForm.getRawValue();
-        console.log(email)
-        this.recuperarSenhaService
-            .enviaEmail(email)
-            .subscribe(() => {
-                this.dados = {...email};  
-                this.exibir += 1;
-            });
+        if(this.recuperarSenhaForm.valid){
+            this.recuperarSenhaService
+                .enviaEmail(email)
+                .subscribe(() => {
+                    this.dados = {...email};
+                    setTimeout(() => this.emailEnviado = false, 2500)  
+                });
+        
+        }
     }
 
     enviarCodigo(event: Event){
@@ -73,7 +62,10 @@ export class RecuperarSenhaComponent implements OnInit, OnChanges {
         console.log(this.dados)
         this.recuperarSenhaService
             .enviaCodigo(this.dados)
-            .subscribe(() => this.exibir += 1)
+            .subscribe(() => {
+                this.exibir += 1
+                setTimeout(() => this.codigoCorreto = false, 2500)  
+            })
     }
 
     enviarSenha(event: Event){

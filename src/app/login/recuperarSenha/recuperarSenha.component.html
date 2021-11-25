@@ -1,11 +1,12 @@
 <div class="container-recuperar-senha">
     <div class="recuperar-senha">
         <div class="card-recuperar-senha zindex1" [ngSwitch]="exibir">
-            <form *ngSwitchCase="0" [formGroup]="recuperarSenhaForm" class="form-recuperar-senha" (submit)="enviarEmail($event)">
+            <form *ngSwitchCase="0" #formSenha="ngForm" [formGroup]="recuperarSenhaForm" class="form-recuperar-senha" (submit)="enviarEmail($event)">
                 <p class="recuperar-senha-label">Recuperar Senha</p>
                 <p class="recuperar-senha-description">Um email de recuperação de senha será enviado.</p>                
                 <div class="inputEmail inputEntrada">
                     <input formControlName="email" class="recuperar-senha-input" type="text" placeholder="Digite seu email">
+                    <p class="alerta-cadastro" *ngIf="recuperarSenhaForm.get('email')?.errors?.email && (recuperarSenhaForm.get('email')?.touched || formSenha.submitted )">Email Inválido</p>
                 </div>
                 <button class="recuperar-senha-botao" type="submit">Enviar Email</button>
                 <a (click)="voltar()" class="voltar-login">Voltar</a>
@@ -13,6 +14,7 @@
 
                 <form [formGroup]="codigoForm" *ngSwitchCase="1" class="form-recuperar-senha">
                     <p class="recuperar-senha-label">Recuperar Senha</p>
+                    <p *ngIf="emailEnviado" class="alerta-email">Email enviado!</p>
                     <p class="recuperar-senha-description">Verique o código que foi enviado ao seu email</p>
                     <input formControlName="codigo" class="recuperar-senha-input" type="text" placeholder="Digite o codigo">
                     <button class="recuperar-senha-botao margin-top" (click)="enviarCodigo($event)" type="submit">Enviar Codigo</button>
@@ -20,6 +22,7 @@
 
                 <form [formGroup]="novaSenhaForm" *ngSwitchCase="2" class="form-recuperar-senha">
                     <p class="recuperar-senha-label">Recuperar Senha</p>
+                    <p *ngIf="codigoCorreto" class="alerta-email">Código Correto</p>
                     <p class="recuperar-senha-description margin-0">Digite sua nova senha</p>
                     <input formControlName="senha" class="recuperar-senha-input margin-top" type="password" placeholder="Senha">
                     <input formControlName="confirmarSenha" class="recuperar-senha-input margin-top" type="password" placeholder="Confirmar senha">
