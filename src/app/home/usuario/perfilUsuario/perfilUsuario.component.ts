@@ -39,8 +39,10 @@ export class PerfilUsuarioComponent {
         this.getUser()
         this.usuarioService.getUserToken()
             .subscribe(userToken => {
-                this.userToken = userToken
-                this.isGestor = userToken.role === 'gestor'
+                if(userToken){
+                    this.userToken = userToken
+                    this.isGestor = userToken.role === 'gestor'
+                }
             })
     }
 

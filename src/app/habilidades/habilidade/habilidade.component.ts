@@ -26,7 +26,9 @@ export class HabilidadeComponent implements OnInit {
     ngOnInit(): void {
         this.getHabilidades()
         this.usuarioService.getUserToken()
-            .subscribe(user => this.isGestor = user.role === 'gestor')
+            .subscribe(user => {
+                if(user) this.isGestor = user.role === 'gestor'
+            })
         
     }
 

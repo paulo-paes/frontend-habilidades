@@ -14,6 +14,7 @@ export class MenuLateralComponent implements OnInit {
     userData: UsuarioToken;
     isGestor: Boolean = false;
     userPhotoUrl = '';
+    hasPhoto = false;
 
     constructor(
         private usuarioService: UsuarioService,
@@ -28,6 +29,8 @@ export class MenuLateralComponent implements OnInit {
                     this.userData = user;
                     this.isGestor = user.role === 'gestor';
                     this.userPhotoUrl = environment.API + 'usuarios/photo/' + this.userData.photo_url;
+                    let tamanhoArray = this.userPhotoUrl.split('/').length;
+                    this.hasPhoto = this.userPhotoUrl.split('/')[tamanhoArray - 1] != 'null';
                 }
             });
     }
@@ -46,6 +49,8 @@ export class MenuLateralComponent implements OnInit {
         this.usuarioService.getPhotoUrl()
             .subscribe(user => {
                 this.userPhotoUrl = environment.API + 'usuarios/photo/' + user.photo_url;
+                let tamanhoArray = this.userPhotoUrl.split('/').length
+                this.hasPhoto = this.userPhotoUrl.split('/')[tamanhoArray - 1] != 'null'
             })
     }
 }
